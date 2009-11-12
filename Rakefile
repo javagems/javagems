@@ -1,6 +1,6 @@
 desc "Builds a JAR from the contents of the current directory."
 task :build_jar do
-  system("jar", "cvf", "pkg/javagems.jar", "-C", "jarfile-contents/", ".") || raise("Well that didn't work out quite right. Sorry.")
+  system("jar", "cvfm", "pkg/javagems.jar", "jarfile-contents/META-INF/MANIFEST.MF", "-C", "jarfile-contents/", ".") || raise("Well that didn't work out quite right. Sorry.")
 end
 
 desc "Builds the JAR then a RubyGem containing it."
