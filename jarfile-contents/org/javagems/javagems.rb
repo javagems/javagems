@@ -1,7 +1,10 @@
-ENV['GEM_HOME'] = ENV['GEM_PATH'] = "~/.javagem/java"
+ENV['GEM_HOME'] = ENV['JAVAGEM_HOME'] || "~/.javagem/java"
+ENV['GEM_PATH'] = ENV['JAVAGEM_PATH'] || "~/.javagem/java"
+ENV['GEMCUTTER_URL'] = ENV['JAVAGEMS_URL'] || "http://www.javagems.org/"
 require 'rubygems'
 require 'rubygems/gem_runner'
 require 'rubygems/exceptions'
+require 'rubygems/dependency_installer'
 
 module Gem
   DefaultGemConfigName = ".javagemrc"
@@ -16,6 +19,9 @@ module Gem
   end
 
 end
+
+# We don't actually want wrappers in most cases for JavaGems. So nix 'em
+Gem::DependencyInstaller::DEFAULT_OPTIONS.merge(:wrappers => false)
 
 required_version = Gem::Requirement.new "> 1.8.3"
 
