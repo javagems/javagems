@@ -1,27 +1,24 @@
-ENV['GEM_HOME'] = ENV['JAVAGEM_HOME'] || "~/.javagem/java"
-ENV['GEM_PATH'] = ENV['JAVAGEM_PATH'] || "~/.javagem/java"
-ENV['GEMCUTTER_URL'] = ENV['JAVAGEMS_URL'] || "http://www.javagems.org/"
+ENV['GEMCUTTER_URL'] = ENV['JAVAGEMS_URL'] || "http://gems.javagems.org/"
 require 'rubygems'
 require 'rubygems/gem_runner'
 require 'rubygems/exceptions'
-require 'rubygems/dependency_installer'
 
 module Gem
   DefaultGemConfigName = ".javagemrc"
-  DefaultGemSources = %w[http://gems.javagems.org/]
-
-  def self.default_sources
-    DefaultGemSources
-  end
 
   def self.config_file
     File.join Gem.user_home, DefaultGemConfigName
   end
 
-end
+  ConfigFile::PLATFORM_DEFAULTS.merge!(
+    "install" => "--no-env-shebang --no-wrappers",
+    "update"  => "--no-env-shebang --no-wrappers",
+    :sources  => %w[http://gems.javagems.org/],
+    :gemhome  => File.join(Gem.user_home, ".javagem/java"),
+    :gempath  => [File.join(Gem.user_home, ".javagem/java")]
+  )
 
-# We don't actually want wrappers in most cases for JavaGems. So nix 'em
-Gem::DependencyInstaller::DEFAULT_OPTIONS.merge(:wrappers => false)
+end
 
 required_version = Gem::Requirement.new "> 1.8.3"
 
