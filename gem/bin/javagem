@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-require 'pathname'
-jar = Pathname(__FILE__).parent.parent + "jar/javagems.jar"
-exec("java", "-jar", jar.expand_path.to_s, *ARGV)
