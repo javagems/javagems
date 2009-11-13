@@ -11,16 +11,14 @@ begin
     gem.email = "gabriel.gironda@gmail.com"
     gem.homepage = "http://www.javagems.org/"
     gem.authors = ["ggironda", "jaknowlden"]
-    gem.files = gem.files + FileList["jar/*"]
+    gem.files.include "jar/*"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-task :test => :check_dependencies
-
-task :default => :test
+task :default => :build
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
