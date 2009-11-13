@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_config (Git::Lib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/git/lib.rb, line 364</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_config</span>(<span class="ruby-identifier">file</span>)
+      <span class="ruby-identifier">hsh</span> = {}
+      <span class="ruby-identifier">parse_config_list</span> <span class="ruby-identifier">command_lines</span>(<span class="ruby-value str">'config'</span>, [<span class="ruby-value str">'--list'</span>, <span class="ruby-value str">'--file'</span>, <span class="ruby-identifier">file</span>], <span class="ruby-keyword kw">false</span>)
+      <span class="ruby-comment cmt">#hsh = {}</span>
+      <span class="ruby-comment cmt">#file = File.expand_path(file)</span>
+      <span class="ruby-comment cmt">#if File.file?(file)</span>
+      <span class="ruby-comment cmt">#  current_section = nil</span>
+      <span class="ruby-comment cmt">#  File.readlines(file).each do |line|</span>
+      <span class="ruby-comment cmt">#    if m = /\[(\w+)\]/.match(line)</span>
+      <span class="ruby-comment cmt">#      current_section = m[1]</span>
+      <span class="ruby-comment cmt">#    elsif m = /\[(\w+?) &quot;(.*?)&quot;\]/.match(line)</span>
+      <span class="ruby-comment cmt">#      current_section = &quot;#{m[1]}.#{m[2]}&quot;</span>
+      <span class="ruby-comment cmt">#    elsif m = /(\w+?) = (.*)/.match(line)</span>
+      <span class="ruby-comment cmt">#      key = &quot;#{current_section}.#{m[1]}&quot;</span>
+      <span class="ruby-comment cmt">#      hsh[key] = m[2] </span>
+      <span class="ruby-comment cmt">#    end</span>
+      <span class="ruby-comment cmt">#  end</span>
+      <span class="ruby-comment cmt">#end</span>
+      <span class="ruby-comment cmt">#hsh</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

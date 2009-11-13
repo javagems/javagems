@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge#delete_package
+is_singleton: false
+name: delete_package
+params: (group_id, package_id)
+visibility: public

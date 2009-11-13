@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::GemSpecHelper#normalize_files
+is_singleton: false
+name: normalize_files
+params: (array_attribute)
+visibility: public

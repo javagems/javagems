@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns useful array of raw commit object data
+full_name: Git::Lib#commit_data
+is_singleton: false
+name: commit_data
+params: (sha)
+visibility: public

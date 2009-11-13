@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OpenSSL::ASN1::ASN1Data
+includes: []
+
+instance_methods: []
+
+name: ASN1Data
+superclass: Object

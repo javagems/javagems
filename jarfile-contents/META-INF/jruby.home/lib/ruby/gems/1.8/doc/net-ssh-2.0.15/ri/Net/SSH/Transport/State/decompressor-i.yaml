@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The decompressor object to use when decompressing data.
+full_name: Net::SSH::Transport::State#decompressor
+is_singleton: false
+name: decompressor
+params: ()
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::VERB 
+    body: " Same as g.config, but forces it to be at the global level\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "g.config('user.name', 'Scott Chacon') # sets value g.config('user.email', 'email@email.com') # sets value g.config('user.name') # returns 'Scott Chacon' g.config # returns whole config hash"
+full_name: Git::global_config
+is_singleton: true
+name: global_config
+params: (name = nil, value = nil)
+visibility: public

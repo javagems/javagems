@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: Special
+    value: "',=+<>#;'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: HexChar
+    value: /[0-9a-fA-F]/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: HexPair
+    value: /#{HexChar}#{HexChar}/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: HexString
+    value: /#{HexPair}+/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: Pair
+    value: /\\(?:[#{Special}]|\\|"|#{HexPair})/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: StringChar
+    value: /[^#{Special}\\"]/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: QuoteChar
+    value: /[^\\"]/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: AttributeType
+    value: /[a-zA-Z][0-9a-zA-Z]*|[0-9]+(?:\.[0-9]+)*/
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: AttributeValue
+    value: /           (?!["#])((?:#{StringChar}|#{Pair})*)|           \#(#{HexString})|           "((?:#{QuoteChar}|#{Pair})*)"         /x
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: TypeAndValue
+    value: /\A(#{AttributeType})=#{AttributeValue}/
+full_name: OpenSSL::X509::Name::RFC2253DN
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: expand_hexstring
+  - !ruby/object:RI::MethodSummary 
+    name: expand_pair
+  - !ruby/object:RI::MethodSummary 
+    name: expand_value
+  - !ruby/object:RI::MethodSummary 
+    name: scan
+name: RFC2253DN
+superclass: 

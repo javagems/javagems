@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns a Git::Remote object
+full_name: Git::Base#remote
+is_singleton: false
+name: remote
+params: (remote_name = 'origin')
+visibility: public

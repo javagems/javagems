@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: this is a convenience method for accessing the class that wraps all the actual 'git' forked system calls. At some point I hope to replace the Git::Lib class with one that uses native methods or libgit C bindings
+full_name: Git::Base#lib
+is_singleton: false
+name: lib
+params: ()
+visibility: public

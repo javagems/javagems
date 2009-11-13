@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: extended
+comment: 
+constants: []
+
+full_name: Jeweler::Generator::MinitestMixin
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: default_task
+  - !ruby/object:RI::MethodSummary 
+    name: feature_support_extend
+  - !ruby/object:RI::MethodSummary 
+    name: feature_support_require
+  - !ruby/object:RI::MethodSummary 
+    name: test_dir
+  - !ruby/object:RI::MethodSummary 
+    name: test_filename
+  - !ruby/object:RI::MethodSummary 
+    name: test_helper_filename
+  - !ruby/object:RI::MethodSummary 
+    name: test_pattern
+  - !ruby/object:RI::MethodSummary 
+    name: test_task
+name: MinitestMixin
+superclass: 

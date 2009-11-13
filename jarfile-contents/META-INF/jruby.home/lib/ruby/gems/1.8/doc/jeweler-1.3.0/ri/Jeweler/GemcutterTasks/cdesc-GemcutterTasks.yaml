@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: jeweler
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Rake tasks for putting a Jeweler gem on Gemcutter.
+  - !ruby/struct:SM::Flow::P 
+    body: Jeweler::Tasks.new needs to be used before this.
+  - !ruby/struct:SM::Flow::P 
+    body: "Basic usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    Jeweler::Gemcutter.new\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Easy enough, right?
+constants: []
+
+full_name: Jeweler::GemcutterTasks
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: define
+name: GemcutterTasks
+superclass: "::Rake::TaskLib"

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Object::AbstractObject#contents_array
+is_singleton: false
+name: contents_array
+params: ()
+visibility: public

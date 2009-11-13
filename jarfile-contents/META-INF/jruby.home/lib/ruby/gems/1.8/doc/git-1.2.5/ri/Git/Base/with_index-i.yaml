@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: new_index
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "LOWER LEVEL INDEX OPERATIONS ##"
+full_name: Git::Base#with_index
+is_singleton: false
+name: with_index
+params: (new_index) {|new_index| ...}
+visibility: public

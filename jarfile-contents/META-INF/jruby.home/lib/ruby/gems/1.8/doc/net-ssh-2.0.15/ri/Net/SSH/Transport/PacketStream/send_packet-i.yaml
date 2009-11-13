@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Enqueues a packet to be sent, and blocks until the entire packet is sent.
+full_name: Net::SSH::Transport::PacketStream#send_packet
+is_singleton: false
+name: send_packet
+params: (payload)
+visibility: public

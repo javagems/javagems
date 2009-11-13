@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.markdown</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.markdown</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.markdown
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Nov 13 15:04:01 -0600 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+# <a href="../classes/Jeweler.html">Jeweler</a>: Craft the perfect RubyGem
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> provides two things:
+</p>
+<pre>
+ * Rake tasks for managing gems and versioning of a &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt; project
+ * A generator for creating kickstarting a new project
+</pre>
+<p>
+## Quick Links
+</p>
+<pre>
+ * [Wiki](http://wiki.github.com/technicalpickles/jeweler)
+ * [Bugs](http://github.com/technicalpickles/jeweler/issues)
+ * [Donate](http://pledgie.org/campaigns/2604)
+</pre>
+<p>
+## Installing
+</p>
+<pre>
+    # Install the gem:
+    sudo gem install jeweler
+</pre>
+<p>
+## Using in an existing project
+</p>
+<p>
+It&#8216;s easy to get up and running. Update your Rakefile to instantiate
+a `<a href="../classes/Jeweler/Tasks.html">Jeweler::Tasks</a>`, and give it
+a block with details about your project.
+</p>
+<pre>
+    begin
+      require 'jeweler'
+      Jeweler::Tasks.new do |gemspec|
+        gemspec.name = &quot;the-perfect-gem&quot;
+        gemspec.summary = &quot;Summarize your gem&quot;
+        gemspec.description = &quot;Describe your gem&quot;
+        gemspec.email = &quot;josh@technicalpickles.com&quot;
+        gemspec.homepage = &quot;http://github.com/technicalpickles/the-perfect-gem&quot;
+        gemspec.description = &quot;TODO&quot;
+        gemspec.authors = [&quot;Josh Nichols&quot;]
+      end
+    rescue LoadError
+      puts &quot;Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com&quot;
+    end
+</pre>
+<p>
+The yield object here, `gemspec`, is a `Gem::Specification` object. See the
+[Customizing your project&#8216;s gem specification](<a
+href="http://wiki.github.com/technicalpickles/jeweler/customizing-your-projects-gem-specification">wiki.github.com/technicalpickles/jeweler/customizing-your-projects-gem-specification</a>)
+for more details about how you can customize your gemspec.
+</p>
+<p>
+## Using to start a new project
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> provides a generator. It
+requires you to [setup your name and email for git](<a
+href="http://help.github.com/git-email-settings">help.github.com/git-email-settings</a>/)
+and [your username and token for GitHub](<a
+href="http://github.com/guides/local-github-config">github.com/guides/local-github-config</a>).
+</p>
+<pre>
+    jeweler the-perfect-gem
+</pre>
+<p>
+This will prepare a project in the &#8216;the-perfect-gem&#8217; directory,
+setup to use <a href="../classes/Jeweler.html">Jeweler</a>.
+</p>
+<p>
+It supports a number of options:
+</p>
+<pre>
+ * --create-repo: in addition to preparing a project, it create an repo up on GitHub and enable RubyGem generation
+ * --testunit: generate test_helper.rb and test ready for test/unit
+ * --minitest: generate test_helper.rb and test ready for minitest
+ * --shoulda: generate test_helper.rb and test ready for shoulda (this is the default)
+ * --rspec: generate spec_helper.rb and spec ready for rspec
+ * --bacon: generate spec_helper.rb and spec ready for bacon
+ * --gemcutter: setup releasing to gemcutter
+ * --rubyforge: setup releasing to rubyforge
+</pre>
+<p>
+### Default options
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> respects the JEWELER_OPTS
+environment variable. Want to always use RSpec, and you&#8216;re using
+bash? Add this to ~/.bashrc:
+</p>
+<pre>
+    export JEWELER_OPTS=&quot;--rspec&quot;
+</pre>
+<p>
+## Gemspec
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> handles generating a gemspec
+file for your project:
+</p>
+<pre>
+    rake gemspec
+</pre>
+<p>
+This creates a gemspec for your project. It&#8216;s based on the info you
+give `<a href="../classes/Jeweler/Tasks.html">Jeweler::Tasks</a>`, the
+current version of your project, and some defaults that <a
+href="../classes/Jeweler.html">Jeweler</a> provides.
+</p>
+<p>
+## Gem
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> gives you tasks for building
+and installing your gem:
+</p>
+<pre>
+    rake build
+    rake install
+</pre>
+<p>
+## Versioning
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> tracks the version of your
+project. It assumes you will be using a version in the format `x.y.z`. `x`
+is the &#8216;major&#8217; version, `y` is the &#8216;minor&#8217; version,
+and `z` is the patch version.
+</p>
+<p>
+Initially, your project starts out at 0.0.0. <a
+href="../classes/Jeweler.html">Jeweler</a> provides <a
+href="../classes/Rake.html">Rake</a> tasks for bumping the version:
+</p>
+<pre>
+    rake version:bump:major
+    rake version:bump:minor
+    rake version:bump:patch
+</pre>
+<p>
+## Releasing to GitHub
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> handles releasing your gem
+into the wild:
+</p>
+<pre>
+    rake release
+</pre>
+<p>
+It does the following for you:
+</p>
+<pre>
+ * Regenerate the gemspec to the latest version of your project
+ * Push to GitHub (which results in a gem being build)
+ * Tag the version and push to GitHub
+</pre>
+<p>
+## Releasing to Gemcutter
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> can also handle releasing to
+[Gemcutter](<a href="http://gemcutter.org">gemcutter.org</a>). There are a
+few steps you need to do before doing any Gemcutter releases with <a
+href="../classes/Jeweler.html">Jeweler</a>:
+</p>
+<pre>
+ * [Create an account on Gemcutter](http://gemcutter.org/sign_up)
+ * Install the Gemcutter gem: sudo gem install gemcutter
+ * Run 'gemcutter tumble' to set up RubyGems to use gemcutter as the default source
+ * Update your Rakefile to make an instance of `Jeweler::GemcutterTasks`
+</pre>
+<p>
+A Rakefile setup for gemcutter would include something like this:
+</p>
+<pre>
+    begin
+      require 'jeweler'
+      Jeweler::Tasks.new do |gem|
+        # ommitted for brevity
+      end
+      Jeweler::GemcutterTasks.new
+    rescue LoadError
+      puts &quot;Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler&quot;
+    end
+</pre>
+<p>
+With all that setup out of the way, you can now release to Gemcutter with
+impunity. This would release the current version of your gem.
+</p>
+<pre>
+    $ rake gemcutter:release
+</pre>
+<p>
+## Releasing to RubyForge
+</p>
+<p>
+<a href="../classes/Jeweler.html">Jeweler</a> can also handle releasing to
+[RubyForge](<a href="http://rubyforge.org">rubyforge.org</a>). There are a
+few steps you need to do before doing any RubyForge releases with <a
+href="../classes/Jeweler.html">Jeweler</a>:
+</p>
+<pre>
+ * [Create an account on RubyForge](http://rubyforge.org/account/register.php)
+ * Request a project on RubyForge.
+ * Install the RubyForge gem: sudo gem install rubyforge
+ * Run 'rubyforge setup' and fill in your username and password for RubyForge
+ * Run 'rubyforge config' to pull down information about your projects
+ * Run 'rubyforge login' to make sure you are able to login
+ * In Jeweler::Tasks, you must set `rubyforge_project` to the project you just created
+ * Add Jeweler::RubyforgeTasks to bring in the appropriate tasks.
+ * Note, using `jeweler --rubyforge` when generating the project does this for you automatically.
+</pre>
+<p>
+A Rakefile setup for rubyforge would include something like this:
+</p>
+<pre>
+    begin
+      require 'jeweler'
+      Jeweler::Tasks.new do |s|
+        # ommitted for brevity
+        s.rubyforge_project = 'the-perfect-gem' # This line would be new
+      end
+
+      Jeweler::RubyforgeTasks.new do |rubyforge|
+        rubyforge.doc_task = &quot;rdoc&quot;
+      end
+    rescue LoadError
+      puts &quot;Jeweler, or a dependency, not available. Install it with: sudo gem install jeweler&quot;
+    end
+</pre>
+<p>
+Now you must initially create a &#8216;package&#8217; for your gem in your
+RubyForge &#8216;project&#8217;:
+</p>
+<pre>
+    $ rake rubyforge:setup
+</pre>
+<p>
+With all that setup out of the way, you can now release to RubyForge with
+impunity. This would release the current version of your gem, and upload
+the rdoc as your project&#8216;s webpage.
+</p>
+<pre>
+    $ rake rubyforge:release
+</pre>
+<p>
+## Release Workflow
+</p>
+<pre>
+ * Hack, commit, hack, commit, etc, etc
+ * `rake version:bump:patch release` to do the actual version bump and release
+ * Have a delicious scotch
+ * Install [gemstalker](http://github.com/technicalpickles/gemstalker), and use it to know when gem is built. It typically builds in a few minutes, but won't be installable for another 15 minutes.
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

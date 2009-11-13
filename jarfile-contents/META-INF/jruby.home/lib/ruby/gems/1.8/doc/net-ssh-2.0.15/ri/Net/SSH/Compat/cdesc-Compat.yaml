@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: io_select
+  - !ruby/object:RI::MethodSummary 
+    name: io_select
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This class contains miscellaneous patches and workarounds for different ruby implementations.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: SELECT_MUTEX
+    value: Mutex.new
+full_name: Net::SSH::Compat
+includes: []
+
+instance_methods: []
+
+name: Compat
+superclass: Object

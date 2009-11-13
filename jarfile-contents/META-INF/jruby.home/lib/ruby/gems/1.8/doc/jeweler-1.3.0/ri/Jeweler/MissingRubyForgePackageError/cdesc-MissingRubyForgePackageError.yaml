@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Occurs when interacting with RubyForge, and an expected project isn't available on RubyForge.
+constants: []
+
+full_name: Jeweler::MissingRubyForgePackageError
+includes: []
+
+instance_methods: []
+
+name: MissingRubyForgePackageError
+superclass: StandardError

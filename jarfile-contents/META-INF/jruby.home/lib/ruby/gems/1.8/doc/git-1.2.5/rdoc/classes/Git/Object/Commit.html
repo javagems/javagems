@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Git::Object::Commit</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Git::Object::Commit</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/git/object_rb.html">
+                lib/git/object.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="AbstractObject.html">
+                AbstractObject
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000753">author</a>&nbsp;&nbsp;
+      <a href="#M000754">author_date</a>&nbsp;&nbsp;
+      <a href="#M000760">commit?</a>&nbsp;&nbsp;
+      <a href="#M000755">committer</a>&nbsp;&nbsp;
+      <a href="#M000756">committer_date</a>&nbsp;&nbsp;
+      <a href="#M000757">date</a>&nbsp;&nbsp;
+      <a href="#M000758">diff_parent</a>&nbsp;&nbsp;
+      <a href="#M000750">gtree</a>&nbsp;&nbsp;
+      <a href="#M000748">message</a>&nbsp;&nbsp;
+      <a href="#M000749">name</a>&nbsp;&nbsp;
+      <a href="#M000747">new</a>&nbsp;&nbsp;
+      <a href="#M000751">parent</a>&nbsp;&nbsp;
+      <a href="#M000752">parents</a>&nbsp;&nbsp;
+      <a href="#M000759">set_commit</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000747" class="method-detail">
+        <a name="M000747"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000747.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000747.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(base, sha, init = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000753" class="method-detail">
+        <a name="M000753"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000753.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000753.html');return false;">
+          <span class="method-name">author</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+git <a href="Commit.html#M000753">author</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000754" class="method-detail">
+        <a name="M000754"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000754.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000754.html');return false;">
+          <span class="method-name">author_date</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000760" class="method-detail">
+        <a name="M000760"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000760.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000760.html');return false;">
+          <span class="method-name">commit?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000755" class="method-detail">
+        <a name="M000755"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000755.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000755.html');return false;">
+          <span class="method-name">committer</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+git <a href="Commit.html#M000753">author</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000756" class="method-detail">
+        <a name="M000756"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000756.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000756.html');return false;">
+          <span class="method-name">committer_date</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000757" class="method-detail">
+        <a name="M000757"></a>
+
+        <div class="method-heading">
+          <span class="method-name">date</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Commit.html#M000756">committer_date</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000758" class="method-detail">
+        <a name="M000758"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000758.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000758.html');return false;">
+          <span class="method-name">diff_parent</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000750" class="method-detail">
+        <a name="M000750"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000750.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000750.html');return false;">
+          <span class="method-name">gtree</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000748" class="method-detail">
+        <a name="M000748"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000748.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000748.html');return false;">
+          <span class="method-name">message</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000749" class="method-detail">
+        <a name="M000749"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000749.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000749.html');return false;">
+          <span class="method-name">name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000751" class="method-detail">
+        <a name="M000751"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000751.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000751.html');return false;">
+          <span class="method-name">parent</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000752" class="method-detail">
+        <a name="M000752"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000752.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000752.html');return false;">
+          <span class="method-name">parents</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+array of all <a href="Commit.html#M000751">parent</a> commits
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000759" class="method-detail">
+        <a name="M000759"></a>
+
+        <div class="method-heading">
+          <a href="Commit.src/M000759.html" target="Code" class="method-signature"
+            onclick="popupCode('Commit.src/M000759.html');return false;">
+          <span class="method-name">set_commit</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Base#cat_file
+is_singleton: false
+name: cat_file
+params: (objectish)
+visibility: public

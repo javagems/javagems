@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gem::Commands::MigrateCommand#upload_token
+is_singleton: false
+name: upload_token
+params: (token)
+visibility: public

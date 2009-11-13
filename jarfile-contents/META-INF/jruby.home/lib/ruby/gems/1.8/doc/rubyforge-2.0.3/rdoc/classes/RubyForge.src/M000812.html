@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>add_file (RubyForge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubyforge.rb, line 263</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_file</span>(<span class="ruby-identifier">group_name</span>, <span class="ruby-identifier">package_name</span>, <span class="ruby-identifier">release_name</span>, <span class="ruby-identifier">userfile</span>)
+    <span class="ruby-identifier">type_id</span>      = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;type_id&quot;</span>]
+    <span class="ruby-identifier">group_id</span>     = <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;group&quot;</span>, <span class="ruby-identifier">group_name</span>
+    <span class="ruby-identifier">package_id</span>   = <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;package&quot;</span>, <span class="ruby-identifier">package_name</span>
+    <span class="ruby-identifier">release_id</span>   = (<span class="ruby-constant">Integer</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">release_name</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">release_name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">lookup</span>(<span class="ruby-value str">&quot;release&quot;</span>, <span class="ruby-identifier">package_name</span>)[<span class="ruby-identifier">release_name</span>]
+    <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;/releases/#{release_id}/files.js&quot;</span>
+
+    <span class="ruby-identifier">userfile</span> = <span class="ruby-identifier">open</span> <span class="ruby-identifier">userfile</span>, <span class="ruby-value str">'rb'</span>
+
+    <span class="ruby-identifier">type_id</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">userfile</span>.<span class="ruby-identifier">path</span>[<span class="ruby-regexp re">%r|\.[^\./]+$|</span>]
+    <span class="ruby-identifier">type_id</span> = (<span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;type&quot;</span>, <span class="ruby-identifier">type_id</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;type&quot;</span>, <span class="ruby-value str">&quot;.oth&quot;</span>)
+
+    <span class="ruby-identifier">processor_id</span> = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;processor_id&quot;</span>]
+    <span class="ruby-identifier">processor_id</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;Any&quot;</span>
+    <span class="ruby-identifier">processor_id</span> = <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;processor&quot;</span>, <span class="ruby-identifier">processor_id</span>
+
+    <span class="ruby-identifier">form</span> = {
+      <span class="ruby-value str">&quot;file[filename]&quot;</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">userfile</span>.<span class="ruby-identifier">path</span>),
+      <span class="ruby-value str">&quot;file[processor_id]&quot;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">processor_id</span>,
+      <span class="ruby-value str">&quot;file[type_id]&quot;</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type_id</span>,
+      <span class="ruby-value str">&quot;contents&quot;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">userfile</span>.<span class="ruby-identifier">read</span>
+    }
+
+    <span class="ruby-identifier">run</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">form</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

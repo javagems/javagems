@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Commands::InstallGem#use_sudo?
+is_singleton: false
+name: use_sudo?
+params: ()
+visibility: public

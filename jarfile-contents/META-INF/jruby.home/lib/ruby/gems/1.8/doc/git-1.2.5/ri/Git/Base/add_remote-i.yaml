@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: adds a new remote to this repository url can be a git url or a Git::Base object if it's a local reference
+  - !ruby/struct:SM::Flow::VERB 
+    body: " @git.add_remote('scotts_git', 'git://repo.or.cz/rubygit.git')\n @git.fetch('scotts_git')\n @git.merge('scotts_git/master')\n"
+full_name: Git::Base#add_remote
+is_singleton: false
+name: add_remote
+params: (name, url, opts = {})
+visibility: public

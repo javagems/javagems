@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Inititiate a synchronous (non-blocking) download from <tt>remote</tt> to <tt>local</tt>. The following options are recognized:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: ":recursive - the <tt>remote</tt> parameter refers to a remote directory, which should be downloaded to a new directory named <tt>local</tt> on the local machine."
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: ":preserve - the atime and mtime of the file should be preserved."
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: ":verbose - the process should result in verbose output on the server end (useful for debugging)."
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: "This method will return immediately, returning the Net::SSH::Connection::Channel object that will support the download. To wait for the download to finish, you can either call the #wait method on the channel, or otherwise run the Net::SSH event loop until the channel's #active? method returns false."
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  channel = scp.download(&quot;/remote/path&quot;, &quot;/local/path&quot;)\n  channel.wait\n"
+full_name: Net::SCP#download
+is_singleton: false
+name: download
+params: (remote, local, options={}, &progress)
+visibility: public

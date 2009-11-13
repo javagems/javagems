@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Base#read_tree
+is_singleton: false
+name: read_tree
+params: (treeish, opts = {})
+visibility: public

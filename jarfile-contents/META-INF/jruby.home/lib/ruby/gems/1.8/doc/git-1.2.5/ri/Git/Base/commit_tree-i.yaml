@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Base#commit_tree
+is_singleton: false
+name: commit_tree
+params: (tree = nil, opts = {})
+visibility: public

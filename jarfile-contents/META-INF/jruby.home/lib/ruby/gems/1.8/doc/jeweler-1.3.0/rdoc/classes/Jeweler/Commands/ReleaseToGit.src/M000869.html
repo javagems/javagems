@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Jeweler::Commands::ReleaseToGit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/commands/release_to_git.rb, line 14</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Hey buddy, try committing them files first&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">clean_staging_area?</span>
+
+        <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">checkout</span>(<span class="ruby-value str">'master'</span>)
+        <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">push</span>
+        
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">release_not_tagged?</span>
+          <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Tagging #{release_tag}&quot;</span>
+          <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">add_tag</span>(<span class="ruby-identifier">release_tag</span>)
+
+          <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Pushing #{release_tag} to origin&quot;</span>
+          <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value str">'origin'</span>, <span class="ruby-identifier">release_tag</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

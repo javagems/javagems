@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>configure (RubyForge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubyforge.rb, line 44</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">configure</span> <span class="ruby-identifier">opts</span> = {}
+    <span class="ruby-identifier">user_path</span>        = <span class="ruby-constant">CONFIG_F</span>
+    <span class="ruby-identifier">dir</span>, <span class="ruby-identifier">file</span>        = <span class="ruby-constant">File</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">user_path</span>)
+
+    <span class="ruby-ivar">@userconfig</span>      = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">test</span>(<span class="ruby-value">?e</span>, <span class="ruby-identifier">user_path</span>) <span class="ruby-keyword kw">then</span>
+                         <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">user_path</span>)
+                       <span class="ruby-keyword kw">else</span>
+                         <span class="ruby-constant">CONFIG</span>
+                       <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)
+    <span class="ruby-ivar">@autoconfig_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^user/</span>, <span class="ruby-value str">'auto'</span>))
+    <span class="ruby-ivar">@autoconfig</span>      = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">test</span>(<span class="ruby-value">?e</span>, <span class="ruby-ivar">@autoconfig_path</span>) <span class="ruby-keyword kw">then</span>
+                         <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-ivar">@autoconfig_path</span>)
+                       <span class="ruby-keyword kw">else</span>
+                         <span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">&quot;rubyforge&quot;</span>].<span class="ruby-identifier">dup</span>
+                       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@autoconfig</span>[<span class="ruby-value str">&quot;type_ids&quot;</span>] = <span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">'rubyforge'</span>][<span class="ruby-value str">'type_ids'</span>].<span class="ruby-identifier">dup</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;no &lt;username&gt;&quot;</span>   <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;username&quot;</span>]
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;no &lt;password&gt;&quot;</span>   <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;password&quot;</span>]
+
+    <span class="ruby-keyword kw">self</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

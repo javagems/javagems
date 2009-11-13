@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#full_log_commits
+is_singleton: false
+name: full_log_commits
+params: (opts = {})
+visibility: public

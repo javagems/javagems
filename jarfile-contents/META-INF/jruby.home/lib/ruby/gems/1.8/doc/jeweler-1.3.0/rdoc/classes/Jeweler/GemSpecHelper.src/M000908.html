@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>normalize_files (Jeweler::GemSpecHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/gemspec_helper.rb, line 61</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalize_files</span>(<span class="ruby-identifier">array_attribute</span>)
+      <span class="ruby-identifier">array</span> = <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">array_attribute</span>)
+      <span class="ruby-comment cmt"># only keep files, no directories, and sort</span>
+      <span class="ruby-identifier">array</span> = <span class="ruby-identifier">array</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@base_dir</span>, <span class="ruby-identifier">path</span>)
+      <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">sort</span>
+
+      <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{array_attribute}=&quot;</span>, <span class="ruby-identifier">array</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Object::Commit#diff_parent
+is_singleton: false
+name: diff_parent
+params: ()
+visibility: public

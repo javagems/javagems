@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec_building_block
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: jeweler
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Rake tasks for managing your gem.
+  - !ruby/struct:SM::Flow::P 
+    body: "Here's a basic example of using it:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Jeweler::Tasks.new do |gem|\n    gem.name = &quot;jeweler&quot;\n    gem.summary = &quot;Simple and opinionated helper for creating Rubygem projects on GitHub&quot;\n    gem.email = &quot;josh@technicalpickles.com&quot;\n    gem.homepage = &quot;http://github.com/technicalpickles/jeweler&quot;\n    gem.description = &quot;Simple and opinionated helper for creating Rubygem projects on GitHub&quot;\n    gem.authors = [&quot;Josh Nichols&quot;]\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The block variable gem is actually a Gem::Specification, so you can do anything you would normally do with a Gem::Specification. For more details, see the official gemspec reference: http://docs.rubygems.org/read/chapter/20 . In addition, it has a defaults set for you. See Jeweler::Specification for more details."
+constants: []
+
+full_name: Jeweler::Tasks
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: jeweler
+name: Tasks
+superclass: "::Rake::TaskLib"

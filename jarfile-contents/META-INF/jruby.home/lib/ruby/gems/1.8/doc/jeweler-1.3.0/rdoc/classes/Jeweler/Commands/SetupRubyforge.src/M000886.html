@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Jeweler::Commands::SetupRubyforge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/commands/setup_rubyforge.rb, line 13</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoRubyForgeProjectInGemspecError</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@gemspec</span>.<span class="ruby-identifier">rubyforge_project</span>
+
+        <span class="ruby-ivar">@rubyforge</span>.<span class="ruby-identifier">configure</span>
+
+        <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Logging into rubyforge&quot;</span>
+        <span class="ruby-ivar">@rubyforge</span>.<span class="ruby-identifier">login</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">package_exists?</span>
+          <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@gemspec.name} package already exists in the #{@gemspec.rubyforge_project} project&quot;</span>
+          <span class="ruby-keyword kw">return</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Creating #{@gemspec.name} package in the #{@gemspec.rubyforge_project} project&quot;</span>
+        <span class="ruby-identifier">create_package</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

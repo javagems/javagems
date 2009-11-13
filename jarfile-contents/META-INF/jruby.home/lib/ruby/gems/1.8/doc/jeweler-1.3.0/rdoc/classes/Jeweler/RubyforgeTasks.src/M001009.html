@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>define (Jeweler::RubyforgeTasks)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/rubyforge_tasks.rb, line 51</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">define</span>
+      <span class="ruby-identifier">namespace</span> <span class="ruby-identifier">:rubyforge</span> <span class="ruby-keyword kw">do</span>
+
+        <span class="ruby-identifier">namespace</span> <span class="ruby-identifier">:release</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Release the current gem version to RubyForge.&quot;</span>
+          <span class="ruby-identifier">task</span> <span class="ruby-identifier">:gem</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">:gemspec</span>, <span class="ruby-identifier">:build</span>] <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">begin</span>
+              <span class="ruby-identifier">jeweler</span>.<span class="ruby-identifier">release_gem_to_rubyforge</span>
+            <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoRubyForgeProjectInGemspecError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;Setting up RubyForge requires that you specify a 'rubyforge_project' in your Jeweler::Tasks declaration&quot;</span>
+            <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">MissingRubyForgePackageError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;Rubyforge reported that the #{e.message} package isn't setup. Run rake rubyforge:setup to do so.&quot;</span>
+            <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">RubyForgeProjectNotConfiguredError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;RubyForge reported that #{e.message} wasn't configured. This means you need to run 'rubyforge setup', 'rubyforge login', and 'rubyforge configure', or maybe the project doesn't exist on RubyForge&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">publish_documentation?</span>
+            <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Publish docs to RubyForge.&quot;</span>
+            <span class="ruby-identifier">task</span> <span class="ruby-identifier">:docs</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">doc_task</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">config</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(
+                <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-value str">'~/.rubyforge/user-config.yml'</span>))
+              )
+
+              <span class="ruby-identifier">host</span> = <span class="ruby-node">&quot;#{config['username']}@rubyforge.org&quot;</span>
+              <span class="ruby-identifier">remote_dir</span> = <span class="ruby-node">&quot;/var/www/gforge-projects/#{project}/#{remote_doc_path}&quot;</span>
+
+              <span class="ruby-identifier">local_dir</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">doc_task</span>.<span class="ruby-identifier">to_sym</span>
+                          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:rdoc</span> <span class="ruby-keyword kw">then</span> <span class="ruby-value str">'rdoc'</span>
+                          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:yardoc</span> <span class="ruby-keyword kw">then</span> <span class="ruby-value str">'doc'</span>
+                          <span class="ruby-keyword kw">else</span>
+                            <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Unsure what to run to generate documentation. Please set doc_task and re-run.&quot;</span>
+                          <span class="ruby-keyword kw">end</span>
+
+              <span class="ruby-identifier">sh</span> <span class="ruby-node">%{rsync --archive --verbose --delete #{local_dir}/ #{host}:#{remote_dir}}</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+
+        <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Release gem and RDoc documentation to RubyForge&quot;</span>
+        <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;rubyforge:release:gem&quot;</span>
+        <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;rubyforge:release:docs&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">publish_documentation?</span>
+          
+
+        <span class="ruby-identifier">desc</span> <span class="ruby-value str">&quot;Setup a rubyforge project for this gem&quot;</span>
+        <span class="ruby-identifier">task</span> <span class="ruby-identifier">:setup</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-keyword kw">begin</span> 
+            <span class="ruby-identifier">jeweler</span>.<span class="ruby-identifier">setup_rubyforge</span>
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoRubyForgeProjectInGemspecError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+            <span class="ruby-identifier">abort</span> <span class="ruby-value str">&quot;Setting up RubyForge requires that you specify a 'rubyforge_project' in your Jeweler::Tasks declaration&quot;</span>
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">RubyForgeProjectNotConfiguredError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+            <span class="ruby-identifier">abort</span> <span class="ruby-node">&quot;The RubyForge reported that #{e.message} wasn't configured. This means you need to run 'rubyforge setup', 'rubyforge login', and 'rubyforge configure', or maybe the project doesn't exist on RubyForge&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:release</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'rubyforge:release'</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

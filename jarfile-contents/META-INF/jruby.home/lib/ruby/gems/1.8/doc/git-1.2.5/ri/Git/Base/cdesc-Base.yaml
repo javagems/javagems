@@ -1,0 +1,145 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: bare
+  - !ruby/object:RI::MethodSummary 
+    name: clone
+  - !ruby/object:RI::MethodSummary 
+    name: init
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: open
+comment: 
+constants: []
+
+full_name: Git::Base
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add
+  - !ruby/object:RI::MethodSummary 
+    name: add_remote
+  - !ruby/object:RI::MethodSummary 
+    name: add_tag
+  - !ruby/object:RI::MethodSummary 
+    name: apply
+  - !ruby/object:RI::MethodSummary 
+    name: apply_mail
+  - !ruby/object:RI::MethodSummary 
+    name: archive
+  - !ruby/object:RI::MethodSummary 
+    name: branch
+  - !ruby/object:RI::MethodSummary 
+    name: branches
+  - !ruby/object:RI::MethodSummary 
+    name: cat_file
+  - !ruby/object:RI::MethodSummary 
+    name: chdir
+  - !ruby/object:RI::MethodSummary 
+    name: checkout
+  - !ruby/object:RI::MethodSummary 
+    name: checkout_file
+  - !ruby/object:RI::MethodSummary 
+    name: checkout_index
+  - !ruby/object:RI::MethodSummary 
+    name: commit
+  - !ruby/object:RI::MethodSummary 
+    name: commit_all
+  - !ruby/object:RI::MethodSummary 
+    name: commit_tree
+  - !ruby/object:RI::MethodSummary 
+    name: config
+  - !ruby/object:RI::MethodSummary 
+    name: current_branch
+  - !ruby/object:RI::MethodSummary 
+    name: diff
+  - !ruby/object:RI::MethodSummary 
+    name: dir
+  - !ruby/object:RI::MethodSummary 
+    name: each_conflict
+  - !ruby/object:RI::MethodSummary 
+    name: fetch
+  - !ruby/object:RI::MethodSummary 
+    name: gblob
+  - !ruby/object:RI::MethodSummary 
+    name: gc
+  - !ruby/object:RI::MethodSummary 
+    name: gcommit
+  - !ruby/object:RI::MethodSummary 
+    name: grep
+  - !ruby/object:RI::MethodSummary 
+    name: gtree
+  - !ruby/object:RI::MethodSummary 
+    name: index
+  - !ruby/object:RI::MethodSummary 
+    name: is_branch?
+  - !ruby/object:RI::MethodSummary 
+    name: is_local_branch?
+  - !ruby/object:RI::MethodSummary 
+    name: is_remote_branch?
+  - !ruby/object:RI::MethodSummary 
+    name: lib
+  - !ruby/object:RI::MethodSummary 
+    name: log
+  - !ruby/object:RI::MethodSummary 
+    name: ls_files
+  - !ruby/object:RI::MethodSummary 
+    name: ls_tree
+  - !ruby/object:RI::MethodSummary 
+    name: merge
+  - !ruby/object:RI::MethodSummary 
+    name: object
+  - !ruby/object:RI::MethodSummary 
+    name: pull
+  - !ruby/object:RI::MethodSummary 
+    name: push
+  - !ruby/object:RI::MethodSummary 
+    name: read_tree
+  - !ruby/object:RI::MethodSummary 
+    name: remote
+  - !ruby/object:RI::MethodSummary 
+    name: remotes
+  - !ruby/object:RI::MethodSummary 
+    name: remove
+  - !ruby/object:RI::MethodSummary 
+    name: repack
+  - !ruby/object:RI::MethodSummary 
+    name: repo
+  - !ruby/object:RI::MethodSummary 
+    name: repo_size
+  - !ruby/object:RI::MethodSummary 
+    name: reset
+  - !ruby/object:RI::MethodSummary 
+    name: reset_hard
+  - !ruby/object:RI::MethodSummary 
+    name: revparse
+  - !ruby/object:RI::MethodSummary 
+    name: set_index
+  - !ruby/object:RI::MethodSummary 
+    name: set_working
+  - !ruby/object:RI::MethodSummary 
+    name: status
+  - !ruby/object:RI::MethodSummary 
+    name: tag
+  - !ruby/object:RI::MethodSummary 
+    name: tags
+  - !ruby/object:RI::MethodSummary 
+    name: update_ref
+  - !ruby/object:RI::MethodSummary 
+    name: with_index
+  - !ruby/object:RI::MethodSummary 
+    name: with_temp_index
+  - !ruby/object:RI::MethodSummary 
+    name: with_temp_working
+  - !ruby/object:RI::MethodSummary 
+    name: with_working
+  - !ruby/object:RI::MethodSummary 
+    name: write_and_commit_tree
+  - !ruby/object:RI::MethodSummary 
+    name: write_tree
+name: Base
+superclass: Object

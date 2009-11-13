@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Adds extra space when outputting an array. This helps create better version control diffs, because otherwise it is all on the same line.
+full_name: Jeweler::GemSpecHelper#prettyify_array
+is_singleton: false
+name: prettyify_array
+params: (gemspec_ruby, array_name)
+visibility: public

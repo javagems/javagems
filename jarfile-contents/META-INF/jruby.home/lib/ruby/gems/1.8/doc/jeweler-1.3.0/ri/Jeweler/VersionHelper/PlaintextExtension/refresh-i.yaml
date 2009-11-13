@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::VersionHelper::PlaintextExtension#refresh
+is_singleton: false
+name: refresh
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: fetches changes from a remote branch - this does not modify the working directory, it just gets the changes from the remote if there are any
+full_name: Git::Base#fetch
+is_singleton: false
+name: fetch
+params: (remote = 'origin')
+visibility: public

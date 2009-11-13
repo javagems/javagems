@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: adds files from the working directory to the git repository
+full_name: Git::Base#add
+is_singleton: false
+name: add
+params: (path = '.')
+visibility: public

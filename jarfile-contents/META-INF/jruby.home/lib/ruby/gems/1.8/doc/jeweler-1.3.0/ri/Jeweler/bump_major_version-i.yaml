@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Bumps the major version.
+  - !ruby/struct:SM::Flow::P 
+    body: 1.5.1 -&gt; 2.0.0
+full_name: Jeweler#bump_major_version
+is_singleton: false
+name: bump_major_version
+params: ()
+visibility: public

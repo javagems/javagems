@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: base_dir
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: spec
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Jeweler::GemSpecHelper
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: gem_path
+  - !ruby/object:RI::MethodSummary 
+    name: has_version?
+  - !ruby/object:RI::MethodSummary 
+    name: normalize_files
+  - !ruby/object:RI::MethodSummary 
+    name: parse
+  - !ruby/object:RI::MethodSummary 
+    name: path
+  - !ruby/object:RI::MethodSummary 
+    name: prettyify_array
+  - !ruby/object:RI::MethodSummary 
+    name: to_ruby
+  - !ruby/object:RI::MethodSummary 
+    name: update_version
+  - !ruby/object:RI::MethodSummary 
+    name: valid?
+  - !ruby/object:RI::MethodSummary 
+    name: write
+name: GemSpecHelper
+superclass: Object

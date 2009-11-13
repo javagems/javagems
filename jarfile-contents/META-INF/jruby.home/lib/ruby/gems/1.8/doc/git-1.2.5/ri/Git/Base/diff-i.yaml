@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns a Git::Diff object
+full_name: Git::Base#diff
+is_singleton: false
+name: diff
+params: (objectish = 'HEAD', obj2 = nil)
+visibility: public

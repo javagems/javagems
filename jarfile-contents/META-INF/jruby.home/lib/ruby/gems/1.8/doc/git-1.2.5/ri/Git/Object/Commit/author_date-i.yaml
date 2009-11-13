@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Object::Commit#author_date
+is_singleton: false
+name: author_date
+params: ()
+visibility: public

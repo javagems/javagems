@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: request if block_given?
+comment: 
+full_name: Gem::AbstractCommand#make_request
+is_singleton: false
+name: make_request
+params: (method, path) {|request if block_given?| ...}
+visibility: public

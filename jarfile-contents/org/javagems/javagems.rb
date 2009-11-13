@@ -1,7 +1,8 @@
-ENV['GEMCUTTER_URL'] = ENV['JAVAGEMS_URL'] || "http://gems.javagems.org/"
+ENV['GEMCUTTER_URL'] = ENV['JAVAGEMS_URL'] || "https://gems.javagems.org/"
 require 'rubygems'
 require 'rubygems/gem_runner'
 require 'rubygems/exceptions'
+require 'openssl'
 
 module Gem
   DefaultGemConfigName = ".javagemrc"
@@ -18,6 +19,13 @@ module Gem
     :gempath  => [File.join(Gem.user_home, ".javagem/java")]
   )
 
+end
+
+class Gem::AbstractCommand < Gem::Command
+  remove_const :URL 
+  remove_const :DESTINATION_NAME
+  URL = "http://javagems.org"
+  DESTINATION_NAME = "JavaGems"
 end
 
 required_version = Gem::Requirement.new "> 1.8.3"

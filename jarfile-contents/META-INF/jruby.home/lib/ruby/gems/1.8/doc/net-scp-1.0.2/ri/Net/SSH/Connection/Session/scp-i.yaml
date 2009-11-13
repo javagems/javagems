@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Provides a convenient way to initialize a SCP session given a Net::SSH session. Returns the Net::SCP instance, ready to use.
+full_name: Net::SSH::Connection::Session#scp
+is_singleton: false
+name: scp
+params: ()
+visibility: public

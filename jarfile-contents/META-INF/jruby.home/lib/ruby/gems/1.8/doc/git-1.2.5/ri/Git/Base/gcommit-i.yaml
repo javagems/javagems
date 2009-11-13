@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Base#gcommit
+is_singleton: false
+name: gcommit
+params: (objectish)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#meets_required_version?
+is_singleton: false
+name: meets_required_version?
+params: ()
+visibility: public

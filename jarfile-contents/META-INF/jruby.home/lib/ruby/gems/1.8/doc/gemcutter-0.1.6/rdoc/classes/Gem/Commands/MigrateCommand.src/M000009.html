@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>check_for_approved (Gem::Commands::MigrateCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/migrate.rb, line 96</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_for_approved</span>
+    <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Asking #{DESTINATION_NAME} to verify the upload...&quot;</span>
+
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">make_request</span>(<span class="ruby-identifier">:put</span>, <span class="ruby-node">&quot;gems/#{rubygem[&quot;name&quot;]}/migrate&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-value str">&quot;Content-Length&quot;</span>, <span class="ruby-value">0</span>)
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-value str">&quot;Authorization&quot;</span>, <span class="ruby-identifier">api_key</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">say</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

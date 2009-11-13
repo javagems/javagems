@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>add_release (RubyForge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubyforge.rb, line 206</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_release</span>(<span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">package_id</span>, <span class="ruby-identifier">release_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">files</span>)
+    <span class="ruby-identifier">group_id</span>        = <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;group&quot;</span>, <span class="ruby-identifier">group_id</span>
+    <span class="ruby-identifier">package_id</span>      = <span class="ruby-identifier">lookup</span> <span class="ruby-value str">&quot;package&quot;</span>, <span class="ruby-identifier">package_id</span>
+    <span class="ruby-identifier">release_date</span>    = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;release_date&quot;</span>]
+    <span class="ruby-identifier">release_notes</span>   = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;release_notes&quot;</span>]
+    <span class="ruby-identifier">release_changes</span> = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;release_changes&quot;</span>]
+    <span class="ruby-identifier">preformatted</span>    = <span class="ruby-ivar">@userconfig</span>[<span class="ruby-value str">&quot;preformatted&quot;</span>]
+    <span class="ruby-identifier">release_date</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">&quot;%Y-%m-%d %H:%M&quot;</span>)
+    <span class="ruby-identifier">release_notes</span> = <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">read</span>(<span class="ruby-identifier">release_notes</span>) <span class="ruby-keyword kw">if</span>
+      <span class="ruby-identifier">test</span>(<span class="ruby-value">?e</span>, <span class="ruby-identifier">release_notes</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">release_notes</span>
+    <span class="ruby-identifier">release_changes</span> = <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">read</span>(<span class="ruby-identifier">release_changes</span>) <span class="ruby-keyword kw">if</span>
+      <span class="ruby-identifier">test</span>(<span class="ruby-value">?e</span>, <span class="ruby-identifier">release_changes</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">release_changes</span>
+    <span class="ruby-identifier">preformatted</span> = <span class="ruby-identifier">preformatted</span> <span class="ruby-value">? </span><span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+
+    <span class="ruby-identifier">form</span> = {
+        <span class="ruby-value str">&quot;release[name]&quot;</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">release_name</span>,
+        <span class="ruby-value str">&quot;release[release_date]&quot;</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">release_date</span>,
+        <span class="ruby-value str">&quot;release[notes]&quot;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">release_notes</span>,
+        <span class="ruby-value str">&quot;release[changes]&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">release_changes</span>,
+        <span class="ruby-value str">&quot;release[preformatted]&quot;</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">preformatted</span>,
+    }
+
+    <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;/packages/#{package_id}/releases&quot;</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-identifier">run</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">form</span>
+    
+    <span class="ruby-identifier">release_id</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-value str">&quot;release_id&quot;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">release_id</span> <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">json</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$DEBUG</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Couldn't get release_id, upload failed?&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># FIXME</span>
+    <span class="ruby-comment cmt">#raise &quot;Invalid package_id #{package_id}&quot; if html[/Invalid package_id/]</span>
+    <span class="ruby-comment cmt">#raise &quot;You have already released this version.&quot; if html[/That filename already exists in this project/]</span>
+
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">add_file</span>(<span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">package_id</span>, <span class="ruby-identifier">release_id</span>, <span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">package_name</span> = <span class="ruby-ivar">@autoconfig</span>[<span class="ruby-value str">&quot;package_ids&quot;</span>].<span class="ruby-identifier">invert</span>[<span class="ruby-identifier">package_id</span>]
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown package name for #{package_id}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">package_name</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@autoconfig</span>[<span class="ruby-value str">&quot;release_ids&quot;</span>][<span class="ruby-identifier">package_name</span>] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-ivar">@autoconfig</span>[<span class="ruby-value str">&quot;release_ids&quot;</span>][<span class="ruby-identifier">package_name</span>][<span class="ruby-identifier">release_name</span>] = <span class="ruby-identifier">release_id</span>
+    <span class="ruby-identifier">save_autoconfig</span>
+
+    <span class="ruby-identifier">release_id</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,58 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "TODO: add an autoconfig method that is self-repairing, removing key checks"
+    name: autoconfig
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "TODO: add an autoconfig method that is self-repairing, removing key checks"
+    name: userconfig
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: RubyForge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_file
+  - !ruby/object:RI::MethodSummary 
+    name: add_release
+  - !ruby/object:RI::MethodSummary 
+    name: client
+  - !ruby/object:RI::MethodSummary 
+    name: configure
+  - !ruby/object:RI::MethodSummary 
+    name: create_package
+  - !ruby/object:RI::MethodSummary 
+    name: delete_package
+  - !ruby/object:RI::MethodSummary 
+    name: force
+  - !ruby/object:RI::MethodSummary 
+    name: get_via_rest_api
+  - !ruby/object:RI::MethodSummary 
+    name: login
+  - !ruby/object:RI::MethodSummary 
+    name: logout
+  - !ruby/object:RI::MethodSummary 
+    name: post_news
+  - !ruby/object:RI::MethodSummary 
+    name: save_autoconfig
+  - !ruby/object:RI::MethodSummary 
+    name: scrape_config
+  - !ruby/object:RI::MethodSummary 
+    name: scrape_project
+  - !ruby/object:RI::MethodSummary 
+    name: setup
+  - !ruby/object:RI::MethodSummary 
+    name: uri
+name: RubyForge
+superclass: Object

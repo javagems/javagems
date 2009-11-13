@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler#version_file_exists?
+is_singleton: false
+name: version_file_exists?
+params: ()
+visibility: public

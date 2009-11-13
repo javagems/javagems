@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>boundary_data_for (RubyForge::Client)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubyforge/client.rb, line 94</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">boundary_data_for</span>(<span class="ruby-identifier">boundary</span>, <span class="ruby-identifier">parameters</span>)
+      <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">parameter</span> = <span class="ruby-node">&quot;--#{boundary}\r\nContent-Disposition: form-data; name=\&quot;&quot;</span> <span class="ruby-operator">+</span>
+            <span class="ruby-constant">WEBrick</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPUtils</span>.<span class="ruby-identifier">escape_form</span>(<span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\&quot;&quot;</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:path</span>
+          <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;; filename=\&quot;#{File.basename(v.path)}\&quot;\r\n&quot;</span>
+          <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;Content-Transfer-Encoding: binary\r\n&quot;</span>
+          <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;Content-Type: text/plain&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\r\n\r\n&quot;</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:path</span>
+          <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">read</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">parameter</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">parameter</span>
+      }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\r\n&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-node">&quot;\r\n--#{boundary}--\r\n&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

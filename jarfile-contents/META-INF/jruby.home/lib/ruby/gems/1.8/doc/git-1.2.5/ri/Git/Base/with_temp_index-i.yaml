@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Base#with_temp_index
+is_singleton: false
+name: with_temp_index
+params: (&blk)
+visibility: public

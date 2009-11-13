@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Jeweler::Generator)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/generator.rb, line 52</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">project_name</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:project_name</span>]
+      <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">project_name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">project_name</span>.<span class="ruby-identifier">squeeze</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoGitHubRepoNameGiven</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">development_dependencies</span> = []
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">testing_framework</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:testing_framework</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">documentation_framework</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:documentation_framework</span>]
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">generator_mixin_name</span> = <span class="ruby-node">&quot;#{self.testing_framework.to_s.capitalize}Mixin&quot;</span>
+        <span class="ruby-identifier">generator_mixin</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">generator_mixin_name</span>)
+        <span class="ruby-identifier">extend</span> <span class="ruby-identifier">generator_mixin</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Unsupported testing framework (#{testing_framework})&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">generator_mixin_name</span> = <span class="ruby-node">&quot;#{self.documentation_framework.to_s.capitalize}Mixin&quot;</span>
+        <span class="ruby-identifier">generator_mixin</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">generator_mixin_name</span>)
+        <span class="ruby-identifier">extend</span> <span class="ruby-identifier">generator_mixin</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Unsupported documentation framework (#{documentation_framework})&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">target_dir</span>             = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:directory</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">project_name</span>
+
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">summary</span>                = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:summary</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'TODO: one-line summary of your gem'</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span>            = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:description</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'TODO: longer description of your gem'</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_use_cucumber</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:use_cucumber</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_use_reek</span>        = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:use_reek</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_use_roodi</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:use_roodi</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_setup_gemcutter</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:gemcutter</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">should_setup_rubyforge</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:rubyforge</span>]
+
+      <span class="ruby-identifier">development_dependencies</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value str">&quot;cucumber&quot;</span>, <span class="ruby-value str">&quot;&gt;= 0&quot;</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">should_use_cucumber</span>
+
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">user_name</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_name</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">user_email</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:user_email</span>]
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">homepage</span>        = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:homepage</span>]
+
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoGitUserName</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">user_name</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoGitUserEmail</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">user_email</span>
+
+      <span class="ruby-identifier">extend</span> <span class="ruby-constant">GithubMixin</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

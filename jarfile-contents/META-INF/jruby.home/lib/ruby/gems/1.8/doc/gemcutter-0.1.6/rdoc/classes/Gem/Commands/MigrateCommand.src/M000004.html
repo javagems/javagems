@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>migrate (Gem::Commands::MigrateCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/migrate.rb, line 17</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">migrate</span>
+    <span class="ruby-identifier">find</span>(<span class="ruby-identifier">get_one_gem_name</span>)
+    <span class="ruby-identifier">token</span> = <span class="ruby-identifier">get_token</span>
+    <span class="ruby-identifier">upload_token</span>(<span class="ruby-identifier">token</span>)
+    <span class="ruby-identifier">check_for_approved</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

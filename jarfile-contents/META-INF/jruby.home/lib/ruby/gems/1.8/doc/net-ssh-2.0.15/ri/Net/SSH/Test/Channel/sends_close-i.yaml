@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Scripts the sending of a &quot;channel close&quot; packet across the channel.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  channel.sends_close\n"
+full_name: Net::SSH::Test::Channel#sends_close
+is_singleton: false
+name: sends_close
+params: ()
+visibility: public

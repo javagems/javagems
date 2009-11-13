@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>upload_token (Gem::Commands::MigrateCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/migrate.rb, line 65</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upload_token</span>(<span class="ruby-identifier">token</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-value str">'tempfile'</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-value str">'net/scp'</span>
+
+    <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;#{project_name}.rubyforge.org&quot;</span>
+    <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Uploading the migration token to #{url}.&quot;</span>
+
+    <span class="ruby-identifier">rf_cfg_path</span> = <span class="ruby-node">&quot;#{Gem.user_home}/.rubyforge/user-config.yml&quot;</span>
+
+    <span class="ruby-identifier">login</span>, <span class="ruby-identifier">password</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">rf_cfg_path</span>)
+      <span class="ruby-identifier">rcfg</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">rf_cfg_path</span>)
+      <span class="ruby-identifier">rcfg</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-value str">'username'</span>, <span class="ruby-value str">'password'</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">say</span> <span class="ruby-value str">&quot;Please enter your RubyForge login:&quot;</span>
+      [<span class="ruby-identifier">ask</span>(<span class="ruby-value str">&quot;Login: &quot;</span>), <span class="ruby-identifier">ask_for_password</span>(<span class="ruby-value str">&quot;Password: &quot;</span>)]
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">begin</span>
+      <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SCP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">login</span>, <span class="ruby-identifier">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scp</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">temp_token</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;token&quot;</span>)
+        <span class="ruby-identifier">temp_token</span>.<span class="ruby-identifier">chmod</span> <span class="ruby-value">0644</span>
+        <span class="ruby-identifier">temp_token</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">token</span>)
+        <span class="ruby-identifier">temp_token</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">scp</span>.<span class="ruby-identifier">upload!</span> <span class="ruby-identifier">temp_token</span>.<span class="ruby-identifier">path</span>, <span class="ruby-node">&quot;/var/www/gforge-projects/#{project_name}/migrate-#{rubygem['name']}.html&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">say</span> <span class="ruby-value str">&quot;Successfully uploaded your token.&quot;</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;There was a problem uploading your token: #{e}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

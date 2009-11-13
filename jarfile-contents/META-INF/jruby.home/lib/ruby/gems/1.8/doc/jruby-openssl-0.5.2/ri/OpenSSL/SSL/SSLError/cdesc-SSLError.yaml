@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: OpenSSL::SSL::SSLError
+includes: []
+
+instance_methods: []
+
+name: SSLError
+superclass: OpenSSLError

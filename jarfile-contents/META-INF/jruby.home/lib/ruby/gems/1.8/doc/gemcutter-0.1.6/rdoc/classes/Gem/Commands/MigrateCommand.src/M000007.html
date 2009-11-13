@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_token (Gem::Commands::MigrateCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/migrate.rb, line 47</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_token</span>
+    <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Starting migration of #{rubygem[&quot;name&quot;]} from RubyForge...&quot;</span>
+
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">make_request</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-node">&quot;gems/#{rubygem[&quot;name&quot;]}/migrate&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-value str">&quot;Content-Length&quot;</span>, <span class="ruby-value">0</span>)
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span>(<span class="ruby-value str">&quot;Authorization&quot;</span>, <span class="ruby-identifier">api_key</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">response</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>
+      <span class="ruby-identifier">say</span> <span class="ruby-value str">&quot;A migration token has been created.&quot;</span>
+      <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">say</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+      <span class="ruby-identifier">terminate_interaction</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

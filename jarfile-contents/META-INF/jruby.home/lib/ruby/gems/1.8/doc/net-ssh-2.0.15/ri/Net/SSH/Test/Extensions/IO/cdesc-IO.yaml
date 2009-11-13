@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An extension to the built-in ::IO class. Simply redefines IO.select so that it can be scripted in Net::SSH unit tests.
+constants: []
+
+full_name: Net::SSH::Test::Extensions::IO
+includes: []
+
+instance_methods: []
+
+name: IO
+superclass: 

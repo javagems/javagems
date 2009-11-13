@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge::new
+is_singleton: true
+name: new
+params: (userconfig=nil, autoconfig=nil, opts=nil)
+visibility: public

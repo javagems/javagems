@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>commit_tree (Git::Lib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/git/lib.rb, line 593</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">commit_tree</span>(<span class="ruby-identifier">tree</span>, <span class="ruby-identifier">opts</span> = {})
+      <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:message</span>] <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;commit tree #{tree}&quot;</span>
+      <span class="ruby-identifier">t</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'commit-message'</span>)
+      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:message</span>])
+      <span class="ruby-identifier">t</span>.<span class="ruby-identifier">close</span>
+      
+      <span class="ruby-identifier">arr_opts</span> = []
+      <span class="ruby-identifier">arr_opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tree</span>
+      <span class="ruby-identifier">arr_opts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'-p'</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:parent</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:parent</span>]
+      <span class="ruby-identifier">arr_opts</span> <span class="ruby-operator">+=</span> [<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:parents</span>]].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> [<span class="ruby-value str">'-p'</span>, <span class="ruby-identifier">p</span>] }.<span class="ruby-identifier">flatten</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:parents</span>]
+      <span class="ruby-identifier">command</span>(<span class="ruby-value str">'commit-tree'</span>, <span class="ruby-identifier">arr_opts</span>, <span class="ruby-keyword kw">true</span>, <span class="ruby-node">&quot;&lt; #{escape t.path}&quot;</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

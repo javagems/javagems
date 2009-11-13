@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: base_dir
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec_helper
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: output
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: version
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: version_helper
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_for
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Jeweler::Commands::WriteGemspec
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: gemspec_helper
+  - !ruby/object:RI::MethodSummary 
+    name: run
+name: WriteGemspec
+superclass: Object

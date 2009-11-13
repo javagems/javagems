@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#ignored_files
+is_singleton: false
+name: ignored_files
+params: ()
+visibility: public

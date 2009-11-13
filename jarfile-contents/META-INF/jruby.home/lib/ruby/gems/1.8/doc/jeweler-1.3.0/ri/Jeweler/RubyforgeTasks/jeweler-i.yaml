@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::RubyforgeTasks#jeweler
+is_singleton: false
+name: jeweler
+params: ()
+visibility: public

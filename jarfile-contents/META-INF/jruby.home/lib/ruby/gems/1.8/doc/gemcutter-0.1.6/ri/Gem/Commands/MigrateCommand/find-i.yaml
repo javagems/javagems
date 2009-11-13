@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gem::Commands::MigrateCommand#find
+is_singleton: false
+name: find
+params: (name)
+visibility: public

@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERIFY_NONE
+    value: "0"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERIFY_PEER
+    value: "1"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERIFY_FAIL_IF_NO_PEER_CERT
+    value: "2"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERIFY_CLIENT_ONCE
+    value: "4"
+full_name: OpenSSL::SSL
+includes: []
+
+instance_methods: []
+
+name: SSL
+superclass: 

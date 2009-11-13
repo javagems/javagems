@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Gem::Commands::TumbleCommand
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: description
+  - !ruby/object:RI::MethodSummary 
+    name: execute
+  - !ruby/object:RI::MethodSummary 
+    name: show_sources
+  - !ruby/object:RI::MethodSummary 
+    name: tumble
+name: TumbleCommand
+superclass: Gem::AbstractCommand

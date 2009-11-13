@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge::Client#post_content
+is_singleton: false
+name: post_content
+params: (uri, form = {}, headers = {}, userconfig = nil)
+visibility: public

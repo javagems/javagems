@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Generator#file_name_prefix
+is_singleton: false
+name: file_name_prefix
+params: ()
+visibility: public

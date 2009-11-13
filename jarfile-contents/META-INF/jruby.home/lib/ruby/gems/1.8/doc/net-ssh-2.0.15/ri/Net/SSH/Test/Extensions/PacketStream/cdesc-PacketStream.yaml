@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An extension to Net::SSH::Transport::PacketStream (assumes that the underlying IO is actually a StringIO). Facilitates unit testing.
+constants: []
+
+full_name: Net::SSH::Test::Extensions::PacketStream
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: BufferedIo
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: idle!
+  - !ruby/object:RI::MethodSummary 
+    name: test_available_for_read?
+  - !ruby/object:RI::MethodSummary 
+    name: test_enqueue_packet
+  - !ruby/object:RI::MethodSummary 
+    name: test_poll_next_packet
+name: PacketStream
+superclass: 

@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: commit
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: repo
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: version_helper
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_for
+comment: 
+constants: []
+
+full_name: Jeweler::Commands::Version::Base
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: commit_version
+  - !ruby/object:RI::MethodSummary 
+    name: run
+  - !ruby/object:RI::MethodSummary 
+    name: update_version
+name: Base
+superclass: Object

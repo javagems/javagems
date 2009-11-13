@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Jeweler::FileInTheWay
+includes: []
+
+instance_methods: []
+
+name: FileInTheWay
+superclass: StandardError

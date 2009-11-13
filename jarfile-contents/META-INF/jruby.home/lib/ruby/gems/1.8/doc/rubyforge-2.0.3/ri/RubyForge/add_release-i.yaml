@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge#add_release
+is_singleton: false
+name: add_release
+params: (group_id, package_id, release_name, *files)
+visibility: public

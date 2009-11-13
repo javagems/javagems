@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns hash
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: tree-ish
+        body: = [[line_no, match], [line_no, match2]]
+      - !ruby/struct:SM::Flow::LI 
+        label: tree-ish
+        body: = [[line_no, match], [line_no, match2]]
+    type: :LABELED
+full_name: Git::Lib#grep
+is_singleton: false
+name: grep
+params: (string, opts = {})
+visibility: public

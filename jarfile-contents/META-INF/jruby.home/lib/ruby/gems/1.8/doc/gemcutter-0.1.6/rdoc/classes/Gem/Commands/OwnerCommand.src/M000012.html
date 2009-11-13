@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>execute (Gem::Commands::OwnerCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/owner.rb, line 19</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">execute</span>
+    <span class="ruby-identifier">setup</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">get_one_gem_name</span>
+
+    <span class="ruby-identifier">add_owners</span>    <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:add</span>]
+    <span class="ruby-identifier">remove_owners</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:remove</span>]
+    <span class="ruby-identifier">show_owners</span>   <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

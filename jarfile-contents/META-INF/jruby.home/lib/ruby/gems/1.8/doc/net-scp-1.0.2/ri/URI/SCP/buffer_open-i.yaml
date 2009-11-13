@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: URI::SCP#buffer_open
+is_singleton: false
+name: buffer_open
+params: (buf, proxy, open_options)
+visibility: public

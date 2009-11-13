@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Used by Specification#to_ruby to generate a ruby-respresentation of a Gem::Specification
+full_name: Jeweler::Specification#ruby_code
+is_singleton: false
+name: ruby_code
+params: (obj)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (c)
+comment: 
+full_name: Buffering#each_byte
+is_singleton: false
+name: each_byte
+params: () {|c| ...}
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: this is documented as such, but seems broken for some reason i'll try to get around it some other way later
+full_name: Git::Lib#remote_remove
+is_singleton: false
+name: remote_remove
+params: (name)
+visibility: public

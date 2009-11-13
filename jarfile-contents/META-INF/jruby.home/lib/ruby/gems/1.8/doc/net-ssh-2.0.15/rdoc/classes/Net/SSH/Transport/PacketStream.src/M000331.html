@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>initialize_ssh (Net::SSH::Transport::PacketStream)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/net/ssh/transport/packet_stream.rb, line 172</span>
+172:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_ssh</span>
+173:         <span class="ruby-ivar">@hints</span>  = {}
+174:         <span class="ruby-ivar">@server</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:server</span>)
+175:         <span class="ruby-ivar">@client</span> = <span class="ruby-constant">State</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:client</span>)
+176:         <span class="ruby-ivar">@packet</span> = <span class="ruby-keyword kw">nil</span>
+177:         <span class="ruby-identifier">initialize_buffered_io</span>
+178:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::VersionHelper::YamlExtension#read_yaml
+is_singleton: false
+name: read_yaml
+params: ()
+visibility: public

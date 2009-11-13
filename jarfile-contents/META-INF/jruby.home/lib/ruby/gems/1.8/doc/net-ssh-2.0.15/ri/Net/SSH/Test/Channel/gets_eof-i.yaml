@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Scripts the reception of an EOF packet from the remote end.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  channel.gets_eof\n"
+full_name: Net::SSH::Test::Channel#gets_eof
+is_singleton: false
+name: gets_eof
+params: ()
+visibility: public

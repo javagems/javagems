@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The SHA1-96 HMAC algorithm. This returns only the first 12 bytes of the digest.
+constants: []
+
+full_name: Net::SSH::Transport::HMAC::SHA1_96
+includes: []
+
+instance_methods: []
+
+name: SHA1_96
+superclass: SHA1

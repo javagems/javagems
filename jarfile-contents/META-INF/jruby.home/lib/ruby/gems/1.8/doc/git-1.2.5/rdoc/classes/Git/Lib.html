@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Git::Lib</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Git::Lib</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/git/lib_rb.html">
+                lib/git/lib.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000670">add</a>&nbsp;&nbsp;
+      <a href="#M000674">apply</a>&nbsp;&nbsp;
+      <a href="#M000675">apply_mail</a>&nbsp;&nbsp;
+      <a href="#M000703">archive</a>&nbsp;&nbsp;
+      <a href="#M000653">branch_current</a>&nbsp;&nbsp;
+      <a href="#M000682">branch_delete</a>&nbsp;&nbsp;
+      <a href="#M000681">branch_new</a>&nbsp;&nbsp;
+      <a href="#M000651">branches_all</a>&nbsp;&nbsp;
+      <a href="#M000650">change_head_branch</a>&nbsp;&nbsp;
+      <a href="#M000683">checkout</a>&nbsp;&nbsp;
+      <a href="#M000684">checkout_file</a>&nbsp;&nbsp;
+      <a href="#M000702">checkout_index</a>&nbsp;&nbsp;
+      <a href="#M000636">clone</a>&nbsp;&nbsp;
+      <a href="#M000672">commit</a>&nbsp;&nbsp;
+      <a href="#M000643">commit_data</a>&nbsp;&nbsp;
+      <a href="#M000700">commit_tree</a>&nbsp;&nbsp;
+      <a href="#M000662">config_get</a>&nbsp;&nbsp;
+      <a href="#M000664">config_list</a>&nbsp;&nbsp;
+      <a href="#M000661">config_remote</a>&nbsp;&nbsp;
+      <a href="#M000668">config_set</a>&nbsp;&nbsp;
+      <a href="#M000687">conflicts</a>&nbsp;&nbsp;
+      <a href="#M000704">current_command_version</a>&nbsp;&nbsp;
+      <a href="#M000657">diff_files</a>&nbsp;&nbsp;
+      <a href="#M000655">diff_full</a>&nbsp;&nbsp;
+      <a href="#M000658">diff_index</a>&nbsp;&nbsp;
+      <a href="#M000656">diff_stats</a>&nbsp;&nbsp;
+      <a href="#M000693">fetch</a>&nbsp;&nbsp;
+      <a href="#M000638">full_log_commits</a>&nbsp;&nbsp;
+      <a href="#M000648">full_tree</a>&nbsp;&nbsp;
+      <a href="#M000697">gc</a>&nbsp;&nbsp;
+      <a href="#M000663">global_config_get</a>&nbsp;&nbsp;
+      <a href="#M000665">global_config_list</a>&nbsp;&nbsp;
+      <a href="#M000669">global_config_set</a>&nbsp;&nbsp;
+      <a href="#M000654">grep</a>&nbsp;&nbsp;
+      <a href="#M000660">ignored_files</a>&nbsp;&nbsp;
+      <a href="#M000635">init</a>&nbsp;&nbsp;
+      <a href="#M000652">list_files</a>&nbsp;&nbsp;
+      <a href="#M000637">log_commits</a>&nbsp;&nbsp;
+      <a href="#M000659">ls_files</a>&nbsp;&nbsp;
+      <a href="#M000646">ls_tree</a>&nbsp;&nbsp;
+      <a href="#M000706">meets_required_version?</a>&nbsp;&nbsp;
+      <a href="#M000685">merge</a>&nbsp;&nbsp;
+      <a href="#M000647">mv</a>&nbsp;&nbsp;
+      <a href="#M000640">namerev</a>&nbsp;&nbsp;
+      <a href="#M000634">new</a>&nbsp;&nbsp;
+      <a href="#M000645">object_contents</a>&nbsp;&nbsp;
+      <a href="#M000642">object_size</a>&nbsp;&nbsp;
+      <a href="#M000641">object_type</a>&nbsp;&nbsp;
+      <a href="#M000667">parse_config</a>&nbsp;&nbsp;
+      <a href="#M000666">parse_config_list</a>&nbsp;&nbsp;
+      <a href="#M000644">process_commit_data</a>&nbsp;&nbsp;
+      <a href="#M000694">push</a>&nbsp;&nbsp;
+      <a href="#M000698">read_tree</a>&nbsp;&nbsp;
+      <a href="#M000688">remote_add</a>&nbsp;&nbsp;
+      <a href="#M000689">remote_remove</a>&nbsp;&nbsp;
+      <a href="#M000690">remotes</a>&nbsp;&nbsp;
+      <a href="#M000671">remove</a>&nbsp;&nbsp;
+      <a href="#M000696">repack</a>&nbsp;&nbsp;
+      <a href="#M000705">required_command_version</a>&nbsp;&nbsp;
+      <a href="#M000673">reset</a>&nbsp;&nbsp;
+      <a href="#M000639">revparse</a>&nbsp;&nbsp;
+      <a href="#M000678">stash_apply</a>&nbsp;&nbsp;
+      <a href="#M000679">stash_clear</a>&nbsp;&nbsp;
+      <a href="#M000680">stash_list</a>&nbsp;&nbsp;
+      <a href="#M000677">stash_save</a>&nbsp;&nbsp;
+      <a href="#M000676">stashes_all</a>&nbsp;&nbsp;
+      <a href="#M000692">tag</a>&nbsp;&nbsp;
+      <a href="#M000695">tag_sha</a>&nbsp;&nbsp;
+      <a href="#M000691">tags</a>&nbsp;&nbsp;
+      <a href="#M000649">tree_depth</a>&nbsp;&nbsp;
+      <a href="#M000686">unmerged</a>&nbsp;&nbsp;
+      <a href="#M000701">update_ref</a>&nbsp;&nbsp;
+      <a href="#M000699">write_tree</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000634" class="method-detail">
+        <a name="M000634"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000634.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000634.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(base = nil, logger = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000670" class="method-detail">
+        <a name="M000670"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000670.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000670.html');return false;">
+          <span class="method-name">add</span><span class="method-args">(path = '.')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000674" class="method-detail">
+        <a name="M000674"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000674.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000674.html');return false;">
+          <span class="method-name">apply</span><span class="method-args">(patch_file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000675" class="method-detail">
+        <a name="M000675"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000675.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000675.html');return false;">
+          <span class="method-name">apply_mail</span><span class="method-args">(patch_file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000703" class="method-detail">
+        <a name="M000703"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000703.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000703.html');return false;">
+          <span class="method-name">archive</span><span class="method-args">(sha, file = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+creates an <a href="Lib.html#M000703">archive</a> file
+</p>
+<p>
+options
+</p>
+<pre>
+ :format  (zip, tar)
+ :prefix
+ :remote
+ :path
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000653" class="method-detail">
+        <a name="M000653"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000653.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000653.html');return false;">
+          <span class="method-name">branch_current</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000682" class="method-detail">
+        <a name="M000682"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000682.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000682.html');return false;">
+          <span class="method-name">branch_delete</span><span class="method-args">(branch)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000681" class="method-detail">
+        <a name="M000681"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000681.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000681.html');return false;">
+          <span class="method-name">branch_new</span><span class="method-args">(branch)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000651" class="method-detail">
+        <a name="M000651"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000651.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000651.html');return false;">
+          <span class="method-name">branches_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000650" class="method-detail">
+        <a name="M000650"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000650.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000650.html');return false;">
+          <span class="method-name">change_head_branch</span><span class="method-args">(branch_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000683" class="method-detail">
+        <a name="M000683"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000683.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000683.html');return false;">
+          <span class="method-name">checkout</span><span class="method-args">(branch, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000684" class="method-detail">
+        <a name="M000684"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000684.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000684.html');return false;">
+          <span class="method-name">checkout_file</span><span class="method-args">(version, file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000702" class="method-detail">
+        <a name="M000702"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000702.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000702.html');return false;">
+          <span class="method-name">checkout_index</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000636" class="method-detail">
+        <a name="M000636"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000636.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000636.html');return false;">
+          <span class="method-name">clone</span><span class="method-args">(repository, name, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+tries to <a href="Lib.html#M000636">clone</a> the given repo
+</p>
+<p>
+returns {:repository} (if bare)
+</p>
+<pre>
+        {:working_directory} otherwise
+</pre>
+<p>
+accepts options:
+</p>
+<pre>
+ :remote:: name of remote (rather than 'origin')
+ :bare::   no working directory
+ :depth::  the number of commits back to pull
+</pre>
+<p>
+TODO - make this work with SSH password or auth_key
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000672" class="method-detail">
+        <a name="M000672"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000672.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000672.html');return false;">
+          <span class="method-name">commit</span><span class="method-args">(message, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000643" class="method-detail">
+        <a name="M000643"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000643.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000643.html');return false;">
+          <span class="method-name">commit_data</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns useful array of raw <a href="Lib.html#M000672">commit</a> object
+data
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000700" class="method-detail">
+        <a name="M000700"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000700.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000700.html');return false;">
+          <span class="method-name">commit_tree</span><span class="method-args">(tree, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000662" class="method-detail">
+        <a name="M000662"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000662.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000662.html');return false;">
+          <span class="method-name">config_get</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000664" class="method-detail">
+        <a name="M000664"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000664.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000664.html');return false;">
+          <span class="method-name">config_list</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000661" class="method-detail">
+        <a name="M000661"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000661.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000661.html');return false;">
+          <span class="method-name">config_remote</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000668" class="method-detail">
+        <a name="M000668"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000668.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000668.html');return false;">
+          <span class="method-name">config_set</span><span class="method-args">(name, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+WRITE COMMANDS ##
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000687" class="method-detail">
+        <a name="M000687"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000687.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000687.html');return false;">
+          <span class="method-name">conflicts</span><span class="method-args">( {|file, your, their| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000704" class="method-detail">
+        <a name="M000704"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000704.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000704.html');return false;">
+          <span class="method-name">current_command_version</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the current version of git, as an Array of Fixnums.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000657" class="method-detail">
+        <a name="M000657"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000657.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000657.html');return false;">
+          <span class="method-name">diff_files</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+compares the index and the working directory
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000655" class="method-detail">
+        <a name="M000655"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000655.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000655.html');return false;">
+          <span class="method-name">diff_full</span><span class="method-args">(obj1 = 'HEAD', obj2 = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000658" class="method-detail">
+        <a name="M000658"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000658.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000658.html');return false;">
+          <span class="method-name">diff_index</span><span class="method-args">(treeish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+compares the index and the repository
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000656" class="method-detail">
+        <a name="M000656"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000656.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000656.html');return false;">
+          <span class="method-name">diff_stats</span><span class="method-args">(obj1 = 'HEAD', obj2 = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000693" class="method-detail">
+        <a name="M000693"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000693.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000693.html');return false;">
+          <span class="method-name">fetch</span><span class="method-args">(remote)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000638" class="method-detail">
+        <a name="M000638"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000638.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000638.html');return false;">
+          <span class="method-name">full_log_commits</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000648" class="method-detail">
+        <a name="M000648"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000648.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000648.html');return false;">
+          <span class="method-name">full_tree</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000697" class="method-detail">
+        <a name="M000697"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000697.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000697.html');return false;">
+          <span class="method-name">gc</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000663" class="method-detail">
+        <a name="M000663"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000663.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000663.html');return false;">
+          <span class="method-name">global_config_get</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000665" class="method-detail">
+        <a name="M000665"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000665.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000665.html');return false;">
+          <span class="method-name">global_config_list</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000669" class="method-detail">
+        <a name="M000669"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000669.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000669.html');return false;">
+          <span class="method-name">global_config_set</span><span class="method-args">(name, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000654" class="method-detail">
+        <a name="M000654"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000654.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000654.html');return false;">
+          <span class="method-name">grep</span><span class="method-args">(string, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns hash
+</p>
+<dl>
+<dt>tree-ish</dt><dd>= [[line_no, match], [line_no, match2]]
+
+</dd>
+<dt>tree-ish</dt><dd>= [[line_no, match], [line_no, match2]]
+
+</dd>
+</dl>
+        </div>
+      </div>
+
+      <div id="method-M000660" class="method-detail">
+        <a name="M000660"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000660.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000660.html');return false;">
+          <span class="method-name">ignored_files</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000635" class="method-detail">
+        <a name="M000635"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000635.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000635.html');return false;">
+          <span class="method-name">init</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000652" class="method-detail">
+        <a name="M000652"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000652.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000652.html');return false;">
+          <span class="method-name">list_files</span><span class="method-args">(ref_dir)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000637" class="method-detail">
+        <a name="M000637"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000637.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000637.html');return false;">
+          <span class="method-name">log_commits</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+READ COMMANDS ##
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000659" class="method-detail">
+        <a name="M000659"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000659.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000659.html');return false;">
+          <span class="method-name">ls_files</span><span class="method-args">(location=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000646" class="method-detail">
+        <a name="M000646"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000646.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000646.html');return false;">
+          <span class="method-name">ls_tree</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000706" class="method-detail">
+        <a name="M000706"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000706.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000706.html');return false;">
+          <span class="method-name">meets_required_version?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000685" class="method-detail">
+        <a name="M000685"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000685.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000685.html');return false;">
+          <span class="method-name">merge</span><span class="method-args">(branch, message = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000647" class="method-detail">
+        <a name="M000647"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000647.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000647.html');return false;">
+          <span class="method-name">mv</span><span class="method-args">(file1, file2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000640" class="method-detail">
+        <a name="M000640"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000640.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000640.html');return false;">
+          <span class="method-name">namerev</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000645" class="method-detail">
+        <a name="M000645"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000645.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000645.html');return false;">
+          <span class="method-name">object_contents</span><span class="method-args">(sha, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000642" class="method-detail">
+        <a name="M000642"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000642.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000642.html');return false;">
+          <span class="method-name">object_size</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000641" class="method-detail">
+        <a name="M000641"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000641.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000641.html');return false;">
+          <span class="method-name">object_type</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000667" class="method-detail">
+        <a name="M000667"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000667.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000667.html');return false;">
+          <span class="method-name">parse_config</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000666" class="method-detail">
+        <a name="M000666"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000666.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000666.html');return false;">
+          <span class="method-name">parse_config_list</span><span class="method-args">(lines)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000644" class="method-detail">
+        <a name="M000644"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000644.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000644.html');return false;">
+          <span class="method-name">process_commit_data</span><span class="method-args">(data, sha = nil, indent = 4)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000694" class="method-detail">
+        <a name="M000694"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000694.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000694.html');return false;">
+          <span class="method-name">push</span><span class="method-args">(remote, branch = 'master', tags = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000698" class="method-detail">
+        <a name="M000698"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000698.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000698.html');return false;">
+          <span class="method-name">read_tree</span><span class="method-args">(treeish, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+reads a tree into the current index file
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000688" class="method-detail">
+        <a name="M000688"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000688.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000688.html');return false;">
+          <span class="method-name">remote_add</span><span class="method-args">(name, url, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000689" class="method-detail">
+        <a name="M000689"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000689.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000689.html');return false;">
+          <span class="method-name">remote_remove</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+this is documented as such, but seems broken for some reason i&#8216;ll try
+to get around it some other way later
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000690" class="method-detail">
+        <a name="M000690"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000690.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000690.html');return false;">
+          <span class="method-name">remotes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000671" class="method-detail">
+        <a name="M000671"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000671.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000671.html');return false;">
+          <span class="method-name">remove</span><span class="method-args">(path = '.', opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000696" class="method-detail">
+        <a name="M000696"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000696.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000696.html');return false;">
+          <span class="method-name">repack</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000705" class="method-detail">
+        <a name="M000705"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000705.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000705.html');return false;">
+          <span class="method-name">required_command_version</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000673" class="method-detail">
+        <a name="M000673"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000673.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000673.html');return false;">
+          <span class="method-name">reset</span><span class="method-args">(commit, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000639" class="method-detail">
+        <a name="M000639"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000639.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000639.html');return false;">
+          <span class="method-name">revparse</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000678" class="method-detail">
+        <a name="M000678"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000678.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000678.html');return false;">
+          <span class="method-name">stash_apply</span><span class="method-args">(id = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000679" class="method-detail">
+        <a name="M000679"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000679.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000679.html');return false;">
+          <span class="method-name">stash_clear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000680" class="method-detail">
+        <a name="M000680"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000680.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000680.html');return false;">
+          <span class="method-name">stash_list</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000677" class="method-detail">
+        <a name="M000677"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000677.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000677.html');return false;">
+          <span class="method-name">stash_save</span><span class="method-args">(message)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000676" class="method-detail">
+        <a name="M000676"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000676.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000676.html');return false;">
+          <span class="method-name">stashes_all</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000692" class="method-detail">
+        <a name="M000692"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000692.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000692.html');return false;">
+          <span class="method-name">tag</span><span class="method-args">(tag)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000695" class="method-detail">
+        <a name="M000695"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000695.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000695.html');return false;">
+          <span class="method-name">tag_sha</span><span class="method-args">(tag_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000691" class="method-detail">
+        <a name="M000691"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000691.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000691.html');return false;">
+          <span class="method-name">tags</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000649" class="method-detail">
+        <a name="M000649"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000649.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000649.html');return false;">
+          <span class="method-name">tree_depth</span><span class="method-args">(sha)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000686" class="method-detail">
+        <a name="M000686"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000686.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000686.html');return false;">
+          <span class="method-name">unmerged</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000701" class="method-detail">
+        <a name="M000701"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000701.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000701.html');return false;">
+          <span class="method-name">update_ref</span><span class="method-args">(branch, commit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000699" class="method-detail">
+        <a name="M000699"></a>
+
+        <div class="method-heading">
+          <a href="Lib.src/M000699.html" target="Code" class="method-signature"
+            onclick="popupCode('Lib.src/M000699.html');return false;">
+          <span class="method-name">write_tree</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

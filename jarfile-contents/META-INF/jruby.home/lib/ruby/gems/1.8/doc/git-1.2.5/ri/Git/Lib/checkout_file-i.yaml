@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#checkout_file
+is_singleton: false
+name: checkout_file
+params: (version, file)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: each Git::DiffFile in turn
+comment: 
+full_name: Git::Diff#each
+is_singleton: false
+name: each
+params: () {|each Git::DiffFile in turn| ...}
+visibility: public

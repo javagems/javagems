@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>make_request (Gem::AbstractCommand)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/commands/abstract_command.rb, line 43</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-value str">'net/http'</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-value str">'net/https'</span>
+
+    <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;#{gemcutter_url}/#{path}&quot;</span>)
+
+    <span class="ruby-identifier">http</span> = <span class="ruby-identifier">proxy_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>)
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'https'</span>
+      <span class="ruby-identifier">http</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
+      <span class="ruby-identifier">http</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">request_method</span> =
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">method</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:get</span>
+        <span class="ruby-identifier">proxy_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:post</span>
+        <span class="ruby-identifier">proxy_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:put</span>
+        <span class="ruby-identifier">proxy_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Put</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:delete</span>
+        <span class="ruby-identifier">proxy_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Delete</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+      <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">request</span> = <span class="ruby-identifier">request_method</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">request</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">request</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: These are no-ops now, but we'll keep them here for backwards compatibility
+full_name: RubyForge#login
+is_singleton: false
+name: login
+params: ()
+visibility: public

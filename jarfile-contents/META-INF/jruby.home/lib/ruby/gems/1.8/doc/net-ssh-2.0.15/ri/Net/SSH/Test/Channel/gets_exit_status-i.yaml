@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Scripts the reception of an &quot;exit-status&quot; channel request packet.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  channel.gets_exit_status(127)\n"
+full_name: Net::SSH::Test::Channel#gets_exit_status
+is_singleton: false
+name: gets_exit_status
+params: (status=0)
+visibility: public

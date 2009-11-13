@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Describes the current version of the Net::SCP library.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MAJOR
+    value: "1"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MINOR
+    value: "0"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: TINY
+    value: "2"
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: The current version, as a Version instance
+    name: CURRENT
+    value: new(MAJOR, MINOR, TINY)
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: The current version, as a String instance
+    name: STRING
+    value: CURRENT.to_s
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MAJOR
+    value: "1"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MINOR
+    value: "0"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: TINY
+    value: "2"
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: The current version, as a Version instance
+    name: CURRENT
+    value: new(MAJOR, MINOR, TINY)
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: The current version, as a String instance
+    name: STRING
+    value: CURRENT.to_s
+full_name: Net::SCP::Version
+includes: []
+
+instance_methods: []
+
+name: Version
+superclass: Net::SSH::Version

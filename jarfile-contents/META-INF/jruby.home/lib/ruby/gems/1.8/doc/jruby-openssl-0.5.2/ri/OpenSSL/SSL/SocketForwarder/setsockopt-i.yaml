@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OpenSSL::SSL::SocketForwarder#setsockopt
+is_singleton: false
+name: setsockopt
+params: (level, optname, optval)
+visibility: public

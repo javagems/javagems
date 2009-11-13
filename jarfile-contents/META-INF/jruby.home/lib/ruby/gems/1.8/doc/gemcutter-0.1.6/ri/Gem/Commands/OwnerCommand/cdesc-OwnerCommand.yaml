@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Gem::Commands::OwnerCommand
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_owners
+  - !ruby/object:RI::MethodSummary 
+    name: description
+  - !ruby/object:RI::MethodSummary 
+    name: execute
+  - !ruby/object:RI::MethodSummary 
+    name: remove_owners
+  - !ruby/object:RI::MethodSummary 
+    name: show_owners
+name: OwnerCommand
+superclass: Gem::AbstractCommand

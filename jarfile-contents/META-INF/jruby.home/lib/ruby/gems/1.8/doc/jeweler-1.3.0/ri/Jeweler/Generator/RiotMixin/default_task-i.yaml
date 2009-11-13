@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Generator::RiotMixin#default_task
+is_singleton: false
+name: default_task
+params: ()
+visibility: public

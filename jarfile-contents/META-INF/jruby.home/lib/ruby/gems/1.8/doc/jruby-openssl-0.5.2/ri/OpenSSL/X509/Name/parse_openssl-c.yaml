@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OpenSSL::X509::Name::parse_openssl
+is_singleton: true
+name: parse_openssl
+params: (str, template=OBJECT_TYPE_TEMPLATE)
+visibility: public

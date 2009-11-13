@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Log#object
+is_singleton: false
+name: object
+params: (objectish)
+visibility: public

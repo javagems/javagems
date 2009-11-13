@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec_helper
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: output
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_for
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Jeweler::Commands::ValidateGemspec
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: run
+name: ValidateGemspec
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Log#since
+is_singleton: false
+name: since
+params: (date)
+visibility: public

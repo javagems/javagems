@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "g.config('user.name', 'Scott Chacon') # sets value g.config('user.email', 'email@email.com') # sets value g.config('user.name') # returns 'Scott Chacon' g.config # returns whole config hash"
+full_name: Git::Base#config
+is_singleton: false
+name: config
+params: (name = nil, value = nil)
+visibility: public

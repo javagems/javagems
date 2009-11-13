@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Jeweler::Generator::Options)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/generator/options.rb, line 7</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">super</span>()
+
+        <span class="ruby-ivar">@orig_args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">clone</span>
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>]       = <span class="ruby-identifier">:shoulda</span>
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:documentation_framework</span>] = <span class="ruby-identifier">:rdoc</span>
+
+        <span class="ruby-identifier">git_config</span> = <span class="ruby-constant">Git</span>.<span class="ruby-identifier">global_config</span>
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:user_name</span>]       = <span class="ruby-identifier">git_config</span>[<span class="ruby-value str">'user.name'</span>]
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:user_email</span>]      = <span class="ruby-identifier">git_config</span>[<span class="ruby-value str">'user.email'</span>]
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:github_username</span>] = <span class="ruby-identifier">git_config</span>[<span class="ruby-value str">'github.user'</span>]
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:github_token</span>]    = <span class="ruby-identifier">git_config</span>[<span class="ruby-value str">'github.token'</span>]
+
+        <span class="ruby-identifier">require</span> <span class="ruby-value str">'optparse'</span>
+        <span class="ruby-ivar">@opts</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-node">&quot;Usage: #{File.basename($0)} [options] reponame\ne.g. #{File.basename($0)} the-perfect-gem&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--directory [DIRECTORY]'</span>, <span class="ruby-value str">'specify the directory to generate into'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">directory</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:directory</span>] = <span class="ruby-identifier">directory</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--rspec'</span>, <span class="ruby-value str">'generate rspec code examples'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:rspec</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--shoulda'</span>, <span class="ruby-value str">'generate shoulda tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:shoulda</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--testunit'</span>, <span class="ruby-value str">'generate test/unit tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:testunit</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--bacon'</span>, <span class="ruby-value str">'generate bacon specifications'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:bacon</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--testspec'</span>, <span class="ruby-value str">'generate test/spec tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:testspec</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--minitest'</span>, <span class="ruby-value str">'generate minitest tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:minitest</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--micronaut'</span>, <span class="ruby-value str">'generate micronaut examples'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:micronaut</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--riot'</span>, <span class="ruby-value str">'generate riot tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:testing_framework</span>] = <span class="ruby-identifier">:riot</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--cucumber'</span>, <span class="ruby-value str">'generate cucumber stories in addition to the other tests'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:use_cucumber</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--reek'</span>, <span class="ruby-value str">'generate rake task for reek'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:use_reek</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--roodi'</span>, <span class="ruby-value str">'generate rake task for roodi'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:use_roodi</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--gemcutter'</span>, <span class="ruby-value str">'setup project for gemcutter'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:gemcutter</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--rubyforge'</span>, <span class="ruby-value str">'setup project for rubyforge'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:rubyforge</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--summary [SUMMARY]'</span>, <span class="ruby-value str">'specify the summary of the project'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">summary</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:summary</span>] = <span class="ruby-identifier">summary</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--description [DESCRIPTION]'</span>, <span class="ruby-value str">'specify a description of the project'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">description</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:description</span>] = <span class="ruby-identifier">description</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--user-name [USER_NAME]'</span>, <span class="ruby-value str">&quot;the user's name, ie that is credited in the LICENSE&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_name</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:user_name</span>] = <span class="ruby-identifier">user_name</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--user-email [USER_EMAIL]'</span>, <span class="ruby-value str">&quot;the user's email, ie that is credited in the Gem specification&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_email</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:user_email</span>] = <span class="ruby-identifier">user_email</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--github-username [GITHUB_USERNAME]'</span>, <span class="ruby-value str">&quot;name of the user on GitHub to set the project up under&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">github_username</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:github_username</span>] = <span class="ruby-identifier">github_username</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--github-token [GITHUB_TOKEN]'</span>, <span class="ruby-value str">&quot;GitHub token to use for interacting with the GitHub API&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">github_token</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:github_token</span>] = <span class="ruby-identifier">github_token</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--git-remote [GIT_REMOTE]'</span>, <span class="ruby-value str">'URI to set the git origin remote to'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">git_remote</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:git_remote</span>] = <span class="ruby-identifier">git_remote</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--homepage [HOMEPAGE]'</span>, <span class="ruby-value str">&quot;the homepage for your project (defaults to the GitHub repo)&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">homepage</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:homepage</span>] = <span class="ruby-identifier">homepage</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--create-repo'</span>, <span class="ruby-value str">'create the repository on GitHub'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:create_repo</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--yard'</span>, <span class="ruby-value str">'use yard for documentation'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:documentation_framework</span>] = <span class="ruby-identifier">:yard</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--rdoc'</span>, <span class="ruby-value str">'use rdoc for documentation'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:documentation_framework</span>] = <span class="ruby-identifier">:rdoc</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">'-h'</span>, <span class="ruby-value str">'--help'</span>, <span class="ruby-value str">'display this help and exit'</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:show_help</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-ivar">@opts</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+          <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:project_name</span>] = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:invalid_argument</span>] = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

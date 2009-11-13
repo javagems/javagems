@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge::Client#query_string_for
+is_singleton: false
+name: query_string_for
+params: (parameters)
+visibility: public

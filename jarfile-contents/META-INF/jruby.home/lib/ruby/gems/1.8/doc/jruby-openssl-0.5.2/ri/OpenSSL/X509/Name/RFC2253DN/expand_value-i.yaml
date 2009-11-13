@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OpenSSL::X509::Name::RFC2253DN#expand_value
+is_singleton: false
+name: expand_value
+params: (str1, str2, str3)
+visibility: public

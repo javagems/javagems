@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: gemspec
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: output
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: rubyforge
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_for
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Jeweler::Commands::SetupRubyforge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: create_package
+  - !ruby/object:RI::MethodSummary 
+    name: package_exists?
+  - !ruby/object:RI::MethodSummary 
+    name: run
+name: SetupRubyforge
+superclass: Object

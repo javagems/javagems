@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#mv
+is_singleton: false
+name: mv
+params: (file1, file2)
+visibility: public

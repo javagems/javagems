@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Git::Base</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Git::Base</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/git/base_rb.html">
+                lib/git/base.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000562">add</a>&nbsp;&nbsp;
+      <a href="#M000576">add_remote</a>&nbsp;&nbsp;
+      <a href="#M000579">add_tag</a>&nbsp;&nbsp;
+      <a href="#M000583">apply</a>&nbsp;&nbsp;
+      <a href="#M000584">apply_mail</a>&nbsp;&nbsp;
+      <a href="#M000580">archive</a>&nbsp;&nbsp;
+      <a href="#M000534">bare</a>&nbsp;&nbsp;
+      <a href="#M000554">branch</a>&nbsp;&nbsp;
+      <a href="#M000553">branches</a>&nbsp;&nbsp;
+      <a href="#M000598">cat_file</a>&nbsp;&nbsp;
+      <a href="#M000544">chdir</a>&nbsp;&nbsp;
+      <a href="#M000568">checkout</a>&nbsp;&nbsp;
+      <a href="#M000569">checkout_file</a>&nbsp;&nbsp;
+      <a href="#M000587">checkout_index</a>&nbsp;&nbsp;
+      <a href="#M000537">clone</a>&nbsp;&nbsp;
+      <a href="#M000566">commit</a>&nbsp;&nbsp;
+      <a href="#M000567">commit_all</a>&nbsp;&nbsp;
+      <a href="#M000590">commit_tree</a>&nbsp;&nbsp;
+      <a href="#M000546">config</a>&nbsp;&nbsp;
+      <a href="#M000599">current_branch</a>&nbsp;&nbsp;
+      <a href="#M000561">diff</a>&nbsp;&nbsp;
+      <a href="#M000539">dir</a>&nbsp;&nbsp;
+      <a href="#M000573">each_conflict</a>&nbsp;&nbsp;
+      <a href="#M000570">fetch</a>&nbsp;&nbsp;
+      <a href="#M000550">gblob</a>&nbsp;&nbsp;
+      <a href="#M000582">gc</a>&nbsp;&nbsp;
+      <a href="#M000549">gcommit</a>&nbsp;&nbsp;
+      <a href="#M000560">grep</a>&nbsp;&nbsp;
+      <a href="#M000548">gtree</a>&nbsp;&nbsp;
+      <a href="#M000541">index</a>&nbsp;&nbsp;
+      <a href="#M000536">init</a>&nbsp;&nbsp;
+      <a href="#M000557">is_branch?</a>&nbsp;&nbsp;
+      <a href="#M000555">is_local_branch?</a>&nbsp;&nbsp;
+      <a href="#M000556">is_remote_branch?</a>&nbsp;&nbsp;
+      <a href="#M000559">lib</a>&nbsp;&nbsp;
+      <a href="#M000551">log</a>&nbsp;&nbsp;
+      <a href="#M000593">ls_files</a>&nbsp;&nbsp;
+      <a href="#M000597">ls_tree</a>&nbsp;&nbsp;
+      <a href="#M000572">merge</a>&nbsp;&nbsp;
+      <a href="#M000538">new</a>&nbsp;&nbsp;
+      <a href="#M000547">object</a>&nbsp;&nbsp;
+      <a href="#M000535">open</a>&nbsp;&nbsp;
+      <a href="#M000574">pull</a>&nbsp;&nbsp;
+      <a href="#M000571">push</a>&nbsp;&nbsp;
+      <a href="#M000588">read_tree</a>&nbsp;&nbsp;
+      <a href="#M000558">remote</a>&nbsp;&nbsp;
+      <a href="#M000575">remotes</a>&nbsp;&nbsp;
+      <a href="#M000563">remove</a>&nbsp;&nbsp;
+      <a href="#M000581">repack</a>&nbsp;&nbsp;
+      <a href="#M000540">repo</a>&nbsp;&nbsp;
+      <a href="#M000545">repo_size</a>&nbsp;&nbsp;
+      <a href="#M000564">reset</a>&nbsp;&nbsp;
+      <a href="#M000565">reset_hard</a>&nbsp;&nbsp;
+      <a href="#M000596">revparse</a>&nbsp;&nbsp;
+      <a href="#M000543">set_index</a>&nbsp;&nbsp;
+      <a href="#M000542">set_working</a>&nbsp;&nbsp;
+      <a href="#M000552">status</a>&nbsp;&nbsp;
+      <a href="#M000578">tag</a>&nbsp;&nbsp;
+      <a href="#M000577">tags</a>&nbsp;&nbsp;
+      <a href="#M000592">update_ref</a>&nbsp;&nbsp;
+      <a href="#M000585">with_index</a>&nbsp;&nbsp;
+      <a href="#M000586">with_temp_index</a>&nbsp;&nbsp;
+      <a href="#M000595">with_temp_working</a>&nbsp;&nbsp;
+      <a href="#M000594">with_working</a>&nbsp;&nbsp;
+      <a href="#M000591">write_and_commit_tree</a>&nbsp;&nbsp;
+      <a href="#M000589">write_tree</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000534" class="method-detail">
+        <a name="M000534"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000534.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000534.html');return false;">
+          <span class="method-name">bare</span><span class="method-args">(git_dir, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+opens a <a href="Base.html#M000534">bare</a> <a href="../Git.html">Git</a>
+<a href="Repository.html">Repository</a> - no working directory options
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000537" class="method-detail">
+        <a name="M000537"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000537.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000537.html');return false;">
+          <span class="method-name">clone</span><span class="method-args">(repository, name, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+clones a git repository locally
+</p>
+<pre>
+ repository - http://repo.or.cz/w/sinatra.git
+ name - sinatra
+</pre>
+<p>
+options:
+</p>
+<pre>
+  :repository
+
+   :bare
+  or
+   :working_directory
+   :index_file
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000536" class="method-detail">
+        <a name="M000536"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000536.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000536.html');return false;">
+          <span class="method-name">init</span><span class="method-args">(working_dir, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+initializes a git repository
+</p>
+<p>
+options:
+</p>
+<pre>
+ :repository
+ :index_file
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000538" class="method-detail">
+        <a name="M000538"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000538.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000538.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000535" class="method-detail">
+        <a name="M000535"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000535.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000535.html');return false;">
+          <span class="method-name">open</span><span class="method-args">(working_dir, opts={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+opens a <a href="Base.html#M000538">new</a> <a href="../Git.html">Git</a>
+Project from a working directory you can specify non-standard git_dir and
+<a href="Base.html#M000541">index</a> file in the options
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000562" class="method-detail">
+        <a name="M000562"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000562.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000562.html');return false;">
+          <span class="method-name">add</span><span class="method-args">(path = '.')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+adds files from the working directory to the git repository
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000576" class="method-detail">
+        <a name="M000576"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000576.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000576.html');return false;">
+          <span class="method-name">add_remote</span><span class="method-args">(name, url, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+adds a <a href="Base.html#M000538">new</a> <a
+href="Base.html#M000558">remote</a> to this repository url can be a git url
+or a <a href="Base.html">Git::Base</a> <a
+href="Base.html#M000547">object</a> if it&#8216;s a local reference
+</p>
+<pre>
+ @git.add_remote('scotts_git', 'git://repo.or.cz/rubygit.git')
+ @git.fetch('scotts_git')
+ @git.merge('scotts_git/master')
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000579" class="method-detail">
+        <a name="M000579"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000579.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000579.html');return false;">
+          <span class="method-name">add_tag</span><span class="method-args">(tag_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+creates a <a href="Base.html#M000538">new</a> git <a
+href="Base.html#M000578">tag</a> (Git::Tag)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000583" class="method-detail">
+        <a name="M000583"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000583.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000583.html');return false;">
+          <span class="method-name">apply</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000584" class="method-detail">
+        <a name="M000584"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000584.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000584.html');return false;">
+          <span class="method-name">apply_mail</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000580" class="method-detail">
+        <a name="M000580"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000580.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000580.html');return false;">
+          <span class="method-name">archive</span><span class="method-args">(treeish, file = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+creates an <a href="Base.html#M000580">archive</a> file of the given
+tree-ish
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000554" class="method-detail">
+        <a name="M000554"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000554.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000554.html');return false;">
+          <span class="method-name">branch</span><span class="method-args">(branch_name = 'master')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Branch.html">Git::Branch</a> <a
+href="Base.html#M000547">object</a> for branch_name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000553" class="method-detail">
+        <a name="M000553"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000553.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000553.html');return false;">
+          <span class="method-name">branches</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Branches.html">Git::Branches</a> <a
+href="Base.html#M000547">object</a> of all the <a
+href="Branch.html">Git::Branch</a> objects for this <a
+href="Base.html#M000540">repo</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000598" class="method-detail">
+        <a name="M000598"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000598.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000598.html');return false;">
+          <span class="method-name">cat_file</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000544" class="method-detail">
+        <a name="M000544"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000544.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000544.html');return false;">
+          <span class="method-name">chdir</span><span class="method-args">( {|the Git::Path| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+changes current working directory for a block to the git working directory
+</p>
+<p>
+example
+</p>
+<pre>
+ @git.chdir do
+   # write files
+   @git.add
+   @git.commit('message')
+ end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000568" class="method-detail">
+        <a name="M000568"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000568.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000568.html');return false;">
+          <span class="method-name">checkout</span><span class="method-args">(branch = 'master', opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks out a <a href="Base.html#M000554">branch</a> as the <a
+href="Base.html#M000538">new</a> git working directory
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000569" class="method-detail">
+        <a name="M000569"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000569.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000569.html');return false;">
+          <span class="method-name">checkout_file</span><span class="method-args">(version, file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+checks out an old version of a file
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000587" class="method-detail">
+        <a name="M000587"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000587.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000587.html');return false;">
+          <span class="method-name">checkout_index</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000566" class="method-detail">
+        <a name="M000566"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000566.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000566.html');return false;">
+          <span class="method-name">commit</span><span class="method-args">(message, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+commits all pending changes in the <a href="Base.html#M000541">index</a>
+file to the git repository
+</p>
+<p>
+options:
+</p>
+<pre>
+  :add_all
+  :allow_empty
+  :author
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000567" class="method-detail">
+        <a name="M000567"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000567.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000567.html');return false;">
+          <span class="method-name">commit_all</span><span class="method-args">(message, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+commits all pending changes in the <a href="Base.html#M000541">index</a>
+file to the git repository, but automatically adds all modified files
+without having to explicitly calling @git.add() on them.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000590" class="method-detail">
+        <a name="M000590"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000590.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000590.html');return false;">
+          <span class="method-name">commit_tree</span><span class="method-args">(tree = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000546" class="method-detail">
+        <a name="M000546"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000546.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000546.html');return false;">
+          <span class="method-name">config</span><span class="method-args">(name = nil, value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+g.config(&#8216;user.name&#8217;, &#8216;Scott Chacon&#8217;) # sets value
+g.config(&#8216;user.email&#8217;, &#8216;email@email.com&#8217;) # sets
+value g.config(&#8216;user.name&#8217;) # returns &#8216;Scott
+Chacon&#8217; g.config # returns whole <a
+href="Base.html#M000546">config</a> hash
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000599" class="method-detail">
+        <a name="M000599"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000599.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000599.html');return false;">
+          <span class="method-name">current_branch</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the name of the <a href="Base.html#M000554">branch</a> the working
+directory is currently on
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000561" class="method-detail">
+        <a name="M000561"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000561.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000561.html');return false;">
+          <span class="method-name">diff</span><span class="method-args">(objectish = 'HEAD', obj2 = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Diff.html">Git::Diff</a> <a
+href="Base.html#M000547">object</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000539" class="method-detail">
+        <a name="M000539"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000539.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000539.html');return false;">
+          <span class="method-name">dir</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a reference to the working directory
+</p>
+<pre>
+ @git.dir.path
+ @git.dir.writeable?
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000573" class="method-detail">
+        <a name="M000573"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000573.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000573.html');return false;">
+          <span class="method-name">each_conflict</span><span class="method-args">() {|file, your_version, their_version| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+iterates over the files which are unmerged
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000570" class="method-detail">
+        <a name="M000570"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000570.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000570.html');return false;">
+          <span class="method-name">fetch</span><span class="method-args">(remote = 'origin')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+fetches changes from a <a href="Base.html#M000558">remote</a> <a
+href="Base.html#M000554">branch</a> - this does not modify the working
+directory, it just gets the changes from the <a
+href="Base.html#M000558">remote</a> if there are any
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000550" class="method-detail">
+        <a name="M000550"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000550.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000550.html');return false;">
+          <span class="method-name">gblob</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000582" class="method-detail">
+        <a name="M000582"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000582.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000582.html');return false;">
+          <span class="method-name">gc</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000549" class="method-detail">
+        <a name="M000549"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000549.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000549.html');return false;">
+          <span class="method-name">gcommit</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000560" class="method-detail">
+        <a name="M000560"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000560.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000560.html');return false;">
+          <span class="method-name">grep</span><span class="method-args">(string, path_limiter = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+will run a <a href="Base.html#M000560">grep</a> for &#8216;string&#8217; on
+the HEAD of the git repository
+</p>
+<p>
+to be more surgical in your <a href="Base.html#M000560">grep</a>, you can
+call <a href="Base.html#M000560">grep</a>() off a specific git <a
+href="Base.html#M000547">object</a>. for example:
+</p>
+<pre>
+ @git.object(&quot;v2.3&quot;).grep('TODO')
+</pre>
+<p>
+in any case, it returns a hash of arrays of the type:
+</p>
+<pre>
+ hsh[tree-ish] = [[line_no, match], [line_no, match2]]
+ hsh[tree-ish] = [[line_no, match], [line_no, match2]]
+</pre>
+<p>
+so you might use it like this:
+</p>
+<pre>
+  @git.grep(&quot;TODO&quot;).each do |sha, arr|
+    puts &quot;in blob #{sha}:&quot;
+    arr.each do |match|
+      puts &quot;\t line #{match[0]}: '#{match[1]}'&quot;
+    end
+  end
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000548" class="method-detail">
+        <a name="M000548"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000548.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000548.html');return false;">
+          <span class="method-name">gtree</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000541" class="method-detail">
+        <a name="M000541"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000541.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000541.html');return false;">
+          <span class="method-name">index</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns reference to the git <a href="Base.html#M000541">index</a> file
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000557" class="method-detail">
+        <a name="M000557"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000557.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000557.html');return false;">
+          <span class="method-name">is_branch?</span><span class="method-args">(branch)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns <tt>true</tt> if the <a href="Base.html#M000554">branch</a> exists
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000555" class="method-detail">
+        <a name="M000555"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000555.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000555.html');return false;">
+          <span class="method-name">is_local_branch?</span><span class="method-args">(branch)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns <tt>true</tt> if the <a href="Base.html#M000554">branch</a> exists
+locally
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000556" class="method-detail">
+        <a name="M000556"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000556.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000556.html');return false;">
+          <span class="method-name">is_remote_branch?</span><span class="method-args">(branch)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns <tt>true</tt> if the <a href="Base.html#M000554">branch</a> exists
+remotely
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000559" class="method-detail">
+        <a name="M000559"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000559.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000559.html');return false;">
+          <span class="method-name">lib</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+this is a convenience method for accessing the class that wraps all the
+actual &#8216;git&#8217; forked system calls. At some point I hope to
+replace the <a href="Lib.html">Git::Lib</a> class with one that uses native
+methods or libgit C bindings
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000551" class="method-detail">
+        <a name="M000551"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000551.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000551.html');return false;">
+          <span class="method-name">log</span><span class="method-args">(count = 30)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Log.html">Git::Log</a> <a
+href="Base.html#M000547">object</a> with count commits
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000593" class="method-detail">
+        <a name="M000593"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000593.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000593.html');return false;">
+          <span class="method-name">ls_files</span><span class="method-args">(location=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000597" class="method-detail">
+        <a name="M000597"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000597.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000597.html');return false;">
+          <span class="method-name">ls_tree</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000572" class="method-detail">
+        <a name="M000572"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000572.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000572.html');return false;">
+          <span class="method-name">merge</span><span class="method-args">(branch, message = 'merge')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+merges one or more <a href="Base.html#M000553">branches</a> into the
+current working <a href="Base.html#M000554">branch</a>
+</p>
+<p>
+you can specify more than one <a href="Base.html#M000554">branch</a> to <a
+href="Base.html#M000572">merge</a> by passing an array of <a
+href="Base.html#M000553">branches</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000547" class="method-detail">
+        <a name="M000547"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000547.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000547.html');return false;">
+          <span class="method-name">object</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Object.html">Git::Object</a> of the appropriate type you
+can also call @git.gtree(&#8216;tree&#8217;), but that&#8216;s just for
+readability. If you call @git.gtree(&#8216;HEAD&#8217;) it will still
+return a <a href="Object/Commit.html">Git::Object::Commit</a> <a
+href="Base.html#M000547">object</a>.
+</p>
+<p>
+@git.object calls a factory method that will run a rev-parse on the
+objectish and determine the type of the <a
+href="Base.html#M000547">object</a> and return an appropriate <a
+href="Base.html#M000547">object</a> for that type
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000574" class="method-detail">
+        <a name="M000574"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000574.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000574.html');return false;">
+          <span class="method-name">pull</span><span class="method-args">(remote = 'origin', branch = 'master', message = 'origin pull')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+fetches a <a href="Base.html#M000554">branch</a> from a <a
+href="Base.html#M000558">remote</a> and merges it into the current working
+<a href="Base.html#M000554">branch</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000571" class="method-detail">
+        <a name="M000571"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000571.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000571.html');return false;">
+          <span class="method-name">push</span><span class="method-args">(remote = 'origin', branch = 'master', tags = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+pushes changes to a <a href="Base.html#M000558">remote</a> repository -
+easiest if this is a cloned repository, otherwise you may have to run
+something like this first to setup the <a href="Base.html#M000571">push</a>
+parameters:
+</p>
+<pre>
+ @git.config('remote.remote-name.push', 'refs/heads/master:refs/heads/master')
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000588" class="method-detail">
+        <a name="M000588"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000588.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000588.html');return false;">
+          <span class="method-name">read_tree</span><span class="method-args">(treeish, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000558" class="method-detail">
+        <a name="M000558"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000558.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000558.html');return false;">
+          <span class="method-name">remote</span><span class="method-args">(remote_name = 'origin')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Remote.html">Git::Remote</a> <a
+href="Base.html#M000547">object</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000575" class="method-detail">
+        <a name="M000575"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000575.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000575.html');return false;">
+          <span class="method-name">remotes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns an array of <a href="../Git.html">Git</a>:<a
+href="Remote.html">Remote</a> objects
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000563" class="method-detail">
+        <a name="M000563"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000563.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000563.html');return false;">
+          <span class="method-name">remove</span><span class="method-args">(path = '.', opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+removes file(s) from the git repository
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000581" class="method-detail">
+        <a name="M000581"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000581.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000581.html');return false;">
+          <span class="method-name">repack</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+repacks the repository
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000540" class="method-detail">
+        <a name="M000540"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000540.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000540.html');return false;">
+          <span class="method-name">repo</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns reference to the git repository directory
+</p>
+<pre>
+ @git.dir.path
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000545" class="method-detail">
+        <a name="M000545"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000545.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000545.html');return false;">
+          <span class="method-name">repo_size</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the repository size in bytes
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000564" class="method-detail">
+        <a name="M000564"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000564.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000564.html');return false;">
+          <span class="method-name">reset</span><span class="method-args">(commitish = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+resets the working directory to the provided commitish
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000565" class="method-detail">
+        <a name="M000565"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000565.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000565.html');return false;">
+          <span class="method-name">reset_hard</span><span class="method-args">(commitish = nil, opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+resets the working directory to the commitish with
+&#8217;&#8212;hard&#8216;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000596" class="method-detail">
+        <a name="M000596"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000596.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000596.html');return false;">
+          <span class="method-name">revparse</span><span class="method-args">(objectish)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+runs git rev-parse to convert the objectish to a full sha
+</p>
+<pre>
+  @git.revparse(&quot;HEAD^^&quot;)
+  @git.revparse('v2.4^{tree}')
+  @git.revparse('v2.4:/doc/index.html')
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000543" class="method-detail">
+        <a name="M000543"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000543.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000543.html');return false;">
+          <span class="method-name">set_index</span><span class="method-args">(index_file, check = true)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000542" class="method-detail">
+        <a name="M000542"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000542.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000542.html');return false;">
+          <span class="method-name">set_working</span><span class="method-args">(work_dir, check = true)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000552" class="method-detail">
+        <a name="M000552"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000552.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000552.html');return false;">
+          <span class="method-name">status</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Status.html">Git::Status</a> <a
+href="Base.html#M000547">object</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000578" class="method-detail">
+        <a name="M000578"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000578.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000578.html');return false;">
+          <span class="method-name">tag</span><span class="method-args">(tag_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a Git::Tag <a href="Base.html#M000547">object</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000577" class="method-detail">
+        <a name="M000577"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000577.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000577.html');return false;">
+          <span class="method-name">tags</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns an array of all Git::Tag objects for this repository
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000592" class="method-detail">
+        <a name="M000592"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000592.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000592.html');return false;">
+          <span class="method-name">update_ref</span><span class="method-args">(branch, commit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000585" class="method-detail">
+        <a name="M000585"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000585.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000585.html');return false;">
+          <span class="method-name">with_index</span><span class="method-args">(new_index) {|new_index| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+LOWER LEVEL INDEX OPERATIONS ##
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000586" class="method-detail">
+        <a name="M000586"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000586.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000586.html');return false;">
+          <span class="method-name">with_temp_index</span><span class="method-args">(&amp;blk)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000595" class="method-detail">
+        <a name="M000595"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000595.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000595.html');return false;">
+          <span class="method-name">with_temp_working</span><span class="method-args">(&amp;blk)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000594" class="method-detail">
+        <a name="M000594"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000594.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000594.html');return false;">
+          <span class="method-name">with_working</span><span class="method-args">(work_dir) {|the Git::WorkingDirectory| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000591" class="method-detail">
+        <a name="M000591"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000591.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000591.html');return false;">
+          <span class="method-name">write_and_commit_tree</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000589" class="method-detail">
+        <a name="M000589"></a>
+
+        <div class="method-heading">
+          <a href="Base.src/M000589.html" target="Code" class="method-signature"
+            onclick="popupCode('Base.src/M000589.html');return false;">
+          <span class="method-name">write_tree</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

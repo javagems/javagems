@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: utc
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: clean up warnings caused by web servers that send down 2 digit years
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CENTURY
+    value: Time.now.year / 100 * 100
+full_name: Time
+includes: []
+
+instance_methods: []
+
+name: Time
+superclass: Object

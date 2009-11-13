@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RubyForge#save_autoconfig
+is_singleton: false
+name: save_autoconfig
+params: ()
+visibility: public

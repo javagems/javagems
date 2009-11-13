@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: dst
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: mode
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: patch
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: path
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: src
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: type
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Git::Diff::DiffFile
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: binary?
+  - !ruby/object:RI::MethodSummary 
+    name: blob
+name: DiffFile
+superclass: Object

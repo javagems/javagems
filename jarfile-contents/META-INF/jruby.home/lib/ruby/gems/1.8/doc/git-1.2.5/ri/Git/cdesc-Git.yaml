@@ -1,0 +1,47 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: bare
+  - !ruby/object:RI::MethodSummary 
+    name: clone
+  - !ruby/object:RI::MethodSummary 
+    name: export
+  - !ruby/object:RI::MethodSummary 
+    name: global_config
+  - !ruby/object:RI::MethodSummary 
+    name: init
+  - !ruby/object:RI::MethodSummary 
+    name: open
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Git/Ruby Library
+  - !ruby/struct:SM::Flow::P 
+    body: This provides bindings for working with git in complex interactions, including branching and merging, object inspection and manipulation, history, patch generation and more. You should be able to do most fundamental git operations with this library.
+  - !ruby/struct:SM::Flow::P 
+    body: This module provides the basic functions to open a git reference to work with. You can open a working directory, open a bare repository, initialize a new repo or clone an existing remote repository.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "Author:"
+        body: Scott Chacon (mailto:schacon@gmail.com)
+      - !ruby/struct:SM::Flow::LI 
+        label: "License:"
+        body: MIT License
+    type: :NOTE
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERSION
+    value: "'1.0.4'"
+full_name: Git
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: config
+  - !ruby/object:RI::MethodSummary 
+    name: global_config
+name: Git
+superclass: 

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#diff_stats
+is_singleton: false
+name: diff_stats
+params: (obj1 = 'HEAD', obj2 = nil, opts = {})
+visibility: public

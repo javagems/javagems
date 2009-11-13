@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Jeweler::VersionHelper::YamlExtension
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: parse_yaml
+  - !ruby/object:RI::MethodSummary 
+    name: path
+  - !ruby/object:RI::MethodSummary 
+    name: read_yaml
+  - !ruby/object:RI::MethodSummary 
+    name: refresh
+  - !ruby/object:RI::MethodSummary 
+    name: to_hash
+  - !ruby/object:RI::MethodSummary 
+    name: write
+name: YamlExtension
+superclass: 

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: add a file to an existing release under the specified group_id, package_id, and release_id
+  - !ruby/struct:SM::Flow::P 
+    body: "example :"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  add_file(&quot;codeforpeople&quot;, &quot;traits&quot;, &quot;0.8.0&quot;, &quot;traits-0.8.0.gem&quot;)\n  add_file(&quot;codeforpeople&quot;, &quot;traits&quot;, &quot;0.8.0&quot;, &quot;traits-0.8.0.tgz&quot;)\n  add_file(1024, 1242, &quot;0.8.0&quot;, &quot;traits-0.8.0.gem&quot;)\n"
+full_name: RubyForge#add_file
+is_singleton: false
+name: add_file
+params: (group_name, package_name, release_name, userfile)
+visibility: public

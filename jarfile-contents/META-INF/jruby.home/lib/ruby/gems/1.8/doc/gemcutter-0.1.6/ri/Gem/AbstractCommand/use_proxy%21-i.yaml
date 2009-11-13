@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gem::AbstractCommand#use_proxy!
+is_singleton: false
+name: use_proxy!
+params: ()
+visibility: public

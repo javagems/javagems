@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: creates an archive file
+  - !ruby/struct:SM::Flow::P 
+    body: options
+  - !ruby/struct:SM::Flow::VERB 
+    body: " :format  (zip, tar)\n :prefix\n :remote\n :path\n"
+full_name: Git::Lib#archive
+is_singleton: false
+name: archive
+params: (sha, file = nil, opts = {})
+visibility: public

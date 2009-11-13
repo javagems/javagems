@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>setup (RubyForge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rubyforge.rb, line 80</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup</span>
+    <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-identifier">mkdir_p</span> <span class="ruby-constant">RUBYFORGE_D</span>, <span class="ruby-identifier">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0700</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">test</span> <span class="ruby-operator">?</span><span class="ruby-identifier">d</span>, <span class="ruby-constant">RUBYFORGE_D</span>
+    <span class="ruby-identifier">test</span> <span class="ruby-operator">?</span><span class="ruby-identifier">e</span>, <span class="ruby-constant">CONFIG_F</span> <span class="ruby-keyword kw">and</span> <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-identifier">mv</span> <span class="ruby-constant">CONFIG_F</span>, <span class="ruby-node">&quot;#{CONFIG_F}.bak&quot;</span>
+    <span class="ruby-identifier">config</span> = <span class="ruby-constant">CONFIG</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">config</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value str">&quot;rubyforge&quot;</span>
+
+    <span class="ruby-identifier">open</span>(<span class="ruby-constant">CONFIG_F</span>, <span class="ruby-value str">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">config</span>)
+    }
+    <span class="ruby-identifier">edit</span> = (<span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;EDITOR&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;EDIT&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;vi&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-node">&quot; '#{CONFIG_F}'&quot;</span>
+    <span class="ruby-identifier">system</span> <span class="ruby-identifier">edit</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;edit '#{CONFIG_F}'&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

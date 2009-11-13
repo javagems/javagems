@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Commands::ReleaseToGit#release_not_tagged?
+is_singleton: false
+name: release_not_tagged?
+params: ()
+visibility: public

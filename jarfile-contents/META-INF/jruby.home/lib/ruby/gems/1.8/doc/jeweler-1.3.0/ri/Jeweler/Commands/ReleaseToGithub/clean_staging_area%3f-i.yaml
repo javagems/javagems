@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Commands::ReleaseToGithub#clean_staging_area?
+is_singleton: false
+name: clean_staging_area?
+params: ()
+visibility: public

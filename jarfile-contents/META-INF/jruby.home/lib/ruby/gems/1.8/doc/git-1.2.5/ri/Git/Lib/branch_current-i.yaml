@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#branch_current
+is_singleton: false
+name: branch_current
+params: ()
+visibility: public

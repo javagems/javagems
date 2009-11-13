@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Git::Object::Tree
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: blobs
+  - !ruby/object:RI::MethodSummary 
+    name: children
+  - !ruby/object:RI::MethodSummary 
+    name: depth
+  - !ruby/object:RI::MethodSummary 
+    name: files
+  - !ruby/object:RI::MethodSummary 
+    name: full_tree
+  - !ruby/object:RI::MethodSummary 
+    name: subdirectories
+  - !ruby/object:RI::MethodSummary 
+    name: subtrees
+  - !ruby/object:RI::MethodSummary 
+    name: tree?
+  - !ruby/object:RI::MethodSummary 
+    name: trees
+name: Tree
+superclass: AbstractObject

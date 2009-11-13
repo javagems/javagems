@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the connection session (Net::SSH::Connection::Session) for use in these tests. It is a fully functional SSH session, operating over a mock socket (#socket).
+full_name: Net::SSH::Test#connection
+is_singleton: false
+name: connection
+params: (options={})
+visibility: public

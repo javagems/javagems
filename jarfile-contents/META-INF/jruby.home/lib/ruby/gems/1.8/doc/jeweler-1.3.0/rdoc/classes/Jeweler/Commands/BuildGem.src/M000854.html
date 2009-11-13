@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Jeweler::Commands::BuildGem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/commands/build_gem.rb, line 10</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+        <span class="ruby-identifier">gemspec_helper</span>.<span class="ruby-identifier">update_version</span>(<span class="ruby-identifier">version_helper</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">gemspec_helper</span>.<span class="ruby-identifier">has_version?</span>
+
+        <span class="ruby-identifier">gemspec</span> = <span class="ruby-identifier">gemspec_helper</span>.<span class="ruby-identifier">parse</span>
+
+        <span class="ruby-identifier">require</span> <span class="ruby-value str">'rubygems/builder'</span>
+        <span class="ruby-identifier">gem_file_name</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">gemspec</span>).<span class="ruby-identifier">build</span>
+
+        <span class="ruby-identifier">pkg_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base_dir</span>, <span class="ruby-value str">'pkg'</span>)
+        <span class="ruby-identifier">file_utils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">pkg_dir</span>
+
+        <span class="ruby-identifier">gem_file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base_dir</span>, <span class="ruby-identifier">gem_file_name</span>)
+        <span class="ruby-identifier">file_utils</span>.<span class="ruby-identifier">mv</span> <span class="ruby-identifier">gem_file_name</span>, <span class="ruby-identifier">pkg_dir</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

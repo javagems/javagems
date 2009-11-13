@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#stash_apply
+is_singleton: false
+name: stash_apply
+params: (id = nil)
+visibility: public

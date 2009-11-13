@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns reference to the git repository directory
+  - !ruby/struct:SM::Flow::VERB 
+    body: " @git.dir.path\n"
+full_name: Git::Base#repo
+is_singleton: false
+name: repo
+params: ()
+visibility: public

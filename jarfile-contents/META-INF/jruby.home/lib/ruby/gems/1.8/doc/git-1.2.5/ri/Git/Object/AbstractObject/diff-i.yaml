@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Object::AbstractObject#diff
+is_singleton: false
+name: diff
+params: (objectish)
+visibility: public

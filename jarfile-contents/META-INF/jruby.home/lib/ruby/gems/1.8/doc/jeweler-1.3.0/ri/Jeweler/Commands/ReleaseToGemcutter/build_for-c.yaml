@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Commands::ReleaseToGemcutter::build_for
+is_singleton: true
+name: build_for
+params: (jeweler)
+visibility: public

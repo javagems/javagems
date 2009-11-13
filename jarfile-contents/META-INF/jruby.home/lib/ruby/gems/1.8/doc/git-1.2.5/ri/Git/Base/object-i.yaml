@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns a Git::Object of the appropriate type you can also call @git.gtree('tree'), but that's just for readability. If you call @git.gtree('HEAD') it will still return a Git::Object::Commit object.
+  - !ruby/struct:SM::Flow::P 
+    body: "@git.object calls a factory method that will run a rev-parse on the objectish and determine the type of the object and return an appropriate object for that type"
+full_name: Git::Base#object
+is_singleton: false
+name: object
+params: (objectish)
+visibility: public

@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: files
+block_params: 
+comment: 
+full_name: Git::Object::Tree#blobs
+is_singleton: false
+name: blobs
+params: ()
+visibility: public

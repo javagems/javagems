@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_package (Jeweler::Commands::SetupRubyforge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/commands/setup_rubyforge.rb, line 40</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_package</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-ivar">@rubyforge</span>.<span class="ruby-identifier">create_package</span>(<span class="ruby-ivar">@gemspec</span>.<span class="ruby-identifier">rubyforge_project</span>, <span class="ruby-ivar">@gemspec</span>.<span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-node">/no &lt;group_id&gt; configured for &lt;#{Regexp.escape @gemspec.rubyforge_project}&gt;/</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">RubyForgeProjectNotConfiguredError</span>, <span class="ruby-ivar">@gemspec</span>.<span class="ruby-identifier">rubyforge_project</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

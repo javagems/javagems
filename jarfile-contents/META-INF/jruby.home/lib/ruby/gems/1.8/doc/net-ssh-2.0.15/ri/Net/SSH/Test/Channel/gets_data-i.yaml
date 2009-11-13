@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Scripts the reception of a channel data packet from the remote end.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  channel.gets_data &quot;bar&quot;\n"
+full_name: Net::SSH::Test::Channel#gets_data
+is_singleton: false
+name: gets_data
+params: (data)
+visibility: public

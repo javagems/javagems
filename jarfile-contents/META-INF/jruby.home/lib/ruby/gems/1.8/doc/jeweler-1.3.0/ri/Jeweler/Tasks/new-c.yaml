@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Tasks::new
+is_singleton: true
+name: new
+params: (gemspec = nil, &gemspec_building_block)
+visibility: public

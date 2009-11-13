@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Git</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Git</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/git/author_rb.html">
+                lib/git/author.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/base_rb.html">
+                lib/git/base.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/branch_rb.html">
+                lib/git/branch.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/branches_rb.html">
+                lib/git/branches.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/diff_rb.html">
+                lib/git/diff.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/index_rb.html">
+                lib/git/index.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/lib_rb.html">
+                lib/git/lib.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/log_rb.html">
+                lib/git/log.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/object_rb.html">
+                lib/git/object.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/path_rb.html">
+                lib/git/path.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/remote_rb.html">
+                lib/git/remote.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/repository_rb.html">
+                lib/git/repository.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/stash_rb.html">
+                lib/git/stash.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/stashes_rb.html">
+                lib/git/stashes.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/status_rb.html">
+                lib/git/status.rb
+                </a>
+        <br />
+                <a href="../files/lib/git/working_directory_rb.html">
+                lib/git/working_directory.rb
+                </a>
+        <br />
+                <a href="../files/lib/git_rb.html">
+                lib/git.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Git.html">Git</a>/Ruby Library
+</p>
+<p>
+This provides bindings for working with git in complex interactions,
+including branching and merging, object inspection and manipulation,
+history, patch generation and more. You should be able to do most
+fundamental git operations with this library.
+</p>
+<p>
+This module provides the basic functions to <a
+href="Git.html#M000526">open</a> a git reference to work with. You can <a
+href="Git.html#M000526">open</a> a working directory, <a
+href="Git.html#M000526">open</a> a <a href="Git.html#M000525">bare</a>
+repository, initialize a new repo or <a href="Git.html#M000528">clone</a>
+an existing remote repository.
+</p>
+<table>
+<tr><td valign="top"><a href="Git/Author.html">Author</a>:</td><td>Scott Chacon (<a href="mailto:schacon@gmail.com">schacon@gmail.com</a>)
+
+</td></tr>
+<tr><td valign="top">License:</td><td>MIT License
+
+</td></tr>
+</table>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000525">bare</a>&nbsp;&nbsp;
+      <a href="#M000528">clone</a>&nbsp;&nbsp;
+      <a href="#M000530">config</a>&nbsp;&nbsp;
+      <a href="#M000529">export</a>&nbsp;&nbsp;
+      <a href="#M000531">global_config</a>&nbsp;&nbsp;
+      <a href="#M000532">global_config</a>&nbsp;&nbsp;
+      <a href="#M000527">init</a>&nbsp;&nbsp;
+      <a href="#M000526">open</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Git/Author.html" class="link">Git::Author</a><br />
+Class <a href="Git/Base.html" class="link">Git::Base</a><br />
+Class <a href="Git/Branch.html" class="link">Git::Branch</a><br />
+Class <a href="Git/Branches.html" class="link">Git::Branches</a><br />
+Class <a href="Git/Diff.html" class="link">Git::Diff</a><br />
+Class <a href="Git/GitExecuteError.html" class="link">Git::GitExecuteError</a><br />
+Class <a href="Git/GitTagNameDoesNotExist.html" class="link">Git::GitTagNameDoesNotExist</a><br />
+Class <a href="Git/Index.html" class="link">Git::Index</a><br />
+Class <a href="Git/Lib.html" class="link">Git::Lib</a><br />
+Class <a href="Git/Log.html" class="link">Git::Log</a><br />
+Class <a href="Git/Object.html" class="link">Git::Object</a><br />
+Class <a href="Git/Path.html" class="link">Git::Path</a><br />
+Class <a href="Git/Remote.html" class="link">Git::Remote</a><br />
+Class <a href="Git/Repository.html" class="link">Git::Repository</a><br />
+Class <a href="Git/Stash.html" class="link">Git::Stash</a><br />
+Class <a href="Git/Stashes.html" class="link">Git::Stashes</a><br />
+Class <a href="Git/Status.html" class="link">Git::Status</a><br />
+Class <a href="Git/WorkingDirectory.html" class="link">Git::WorkingDirectory</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">'1.0.4'</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000525" class="method-detail">
+        <a name="M000525"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000525.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000525.html');return false;">
+          <span class="method-name">bare</span><span class="method-args">(git_dir, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Git.html#M000526">open</a> a <a href="Git.html#M000525">bare</a>
+repository
+</p>
+<p>
+this takes the path to a <a href="Git.html#M000525">bare</a> git repo it
+expects not to be able to use a working directory so you can&#8216;t
+checkout stuff, commit things, etc. but you can do most read operations
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000528" class="method-detail">
+        <a name="M000528"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000528.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000528.html');return false;">
+          <span class="method-name">clone</span><span class="method-args">(repository, name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+clones a remote repository
+</p>
+<p>
+options
+</p>
+<pre>
+  :bare =&gt; true (does a bare clone)
+  :repository =&gt; '/path/to/alt_git_dir'
+  :index =&gt; '/path/to/alt_index_file'
+</pre>
+<p>
+example
+</p>
+<pre>
+ Git.clone('git://repo.or.cz/rubygit.git', 'clone.git', :bare =&gt; true)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000529" class="method-detail">
+        <a name="M000529"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000529.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000529.html');return false;">
+          <span class="method-name">export</span><span class="method-args">(repository, name, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Export the current HEAD (or a branch, if <tt>options[:branch]</tt> is
+specified) into the <tt>name</tt> directory, then remove all traces of git
+from the directory.
+</p>
+<p>
+See <tt><a href="Git.html#M000528">clone</a></tt> for options. Does not
+obey the <tt>:remote</tt> option, since the .git info will be deleted
+anyway; always uses the default remote, &#8216;origin.&#8217;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000531" class="method-detail">
+        <a name="M000531"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000531.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000531.html');return false;">
+          <span class="method-name">global_config</span><span class="method-args">(name = nil, value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <pre>
+ Same as g.config, but forces it to be at the global level
+</pre>
+<p>
+g.config(&#8216;user.name&#8217;, &#8216;Scott Chacon&#8217;) # sets value
+g.config(&#8216;user.email&#8217;, &#8216;email@email.com&#8217;) # sets
+value g.config(&#8216;user.name&#8217;) # returns &#8216;Scott
+Chacon&#8217; g.config # returns whole <a
+href="Git.html#M000530">config</a> hash
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000527" class="method-detail">
+        <a name="M000527"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000527.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000527.html');return false;">
+          <span class="method-name">init</span><span class="method-args">(working_dir = '.', options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+initialize a new git repository, defaults to the current working directory
+</p>
+<p>
+options
+</p>
+<pre>
+  :repository =&gt; '/path/to/alt_git_dir'
+  :index =&gt; '/path/to/alt_index_file'
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000526" class="method-detail">
+        <a name="M000526"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000526.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000526.html');return false;">
+          <span class="method-name">open</span><span class="method-args">(working_dir, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Git.html#M000526">open</a> an existing git working directory
+</p>
+<p>
+this will most likely be the most common way to create a git reference,
+referring to a working directory. if not provided in the options, the
+library will assume your git_dir and index are in the default place (.git/,
+.git/index)
+</p>
+<p>
+options
+</p>
+<pre>
+  :repository =&gt; '/path/to/alt_git_dir'
+  :index =&gt; '/path/to/alt_index_file'
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000530" class="method-detail">
+        <a name="M000530"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000530.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000530.html');return false;">
+          <span class="method-name">config</span><span class="method-args">(name = nil, value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+g.config(&#8216;user.name&#8217;, &#8216;Scott Chacon&#8217;) # sets value
+g.config(&#8216;user.email&#8217;, &#8216;email@email.com&#8217;) # sets
+value g.config(&#8216;user.name&#8217;) # returns &#8216;Scott
+Chacon&#8217; g.config # returns whole <a
+href="Git.html#M000530">config</a> hash
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000532" class="method-detail">
+        <a name="M000532"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000532.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000532.html');return false;">
+          <span class="method-name">global_config</span><span class="method-args">(name = nil, value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

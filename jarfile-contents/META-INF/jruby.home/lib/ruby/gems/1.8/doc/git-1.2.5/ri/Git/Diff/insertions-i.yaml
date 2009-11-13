@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Diff#insertions
+is_singleton: false
+name: insertions
+params: ()
+visibility: public

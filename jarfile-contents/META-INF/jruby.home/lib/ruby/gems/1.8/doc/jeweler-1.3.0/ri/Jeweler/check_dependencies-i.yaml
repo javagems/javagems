@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler#check_dependencies
+is_singleton: false
+name: check_dependencies
+params: (type = nil)
+visibility: public

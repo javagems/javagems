@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::new
+is_singleton: true
+name: new
+params: (gemspec, base_dir = '.')
+visibility: public

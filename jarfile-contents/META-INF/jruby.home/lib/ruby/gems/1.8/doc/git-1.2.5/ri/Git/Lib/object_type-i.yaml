@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#object_type
+is_singleton: false
+name: object_type
+params: (sha)
+visibility: public

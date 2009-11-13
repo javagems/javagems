@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: date
+block_params: 
+comment: 
+full_name: Git::Object::Commit#committer_date
+is_singleton: false
+name: committer_date
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Generator::TestunitMixin#test_filename
+is_singleton: false
+name: test_filename
+params: ()
+visibility: public

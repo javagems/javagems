@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Git::Object::Commit
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: author
+  - !ruby/object:RI::MethodSummary 
+    name: author_date
+  - !ruby/object:RI::MethodSummary 
+    name: commit?
+  - !ruby/object:RI::MethodSummary 
+    name: committer
+  - !ruby/object:RI::MethodSummary 
+    name: committer_date
+  - !ruby/object:RI::MethodSummary 
+    name: date
+  - !ruby/object:RI::MethodSummary 
+    name: diff_parent
+  - !ruby/object:RI::MethodSummary 
+    name: gtree
+  - !ruby/object:RI::MethodSummary 
+    name: message
+  - !ruby/object:RI::MethodSummary 
+    name: name
+  - !ruby/object:RI::MethodSummary 
+    name: parent
+  - !ruby/object:RI::MethodSummary 
+    name: parents
+  - !ruby/object:RI::MethodSummary 
+    name: set_commit
+name: Commit
+superclass: AbstractObject

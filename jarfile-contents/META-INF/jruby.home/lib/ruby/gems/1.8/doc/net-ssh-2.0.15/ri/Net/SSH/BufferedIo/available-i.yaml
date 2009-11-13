@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Returns the number of bytes available to be read from the input buffer. (See #read_available.)"
+full_name: Net::SSH::BufferedIo#available
+is_singleton: false
+name: available
+params: ()
+visibility: public

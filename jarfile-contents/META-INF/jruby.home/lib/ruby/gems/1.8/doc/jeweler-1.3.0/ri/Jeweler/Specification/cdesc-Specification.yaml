@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: filelist_attribute
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Extend a Gem::Specification instance with this module to give it Jeweler super-cow powers.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: files
+        body: a Rake::FileList of anything that is in git and not gitignored. You can include/exclude this default set, or override it entirely
+      - !ruby/struct:SM::Flow::LI 
+        label: test_files
+        body: Similar to gem.files, except it's only things under the spec, test, or examples directory.
+      - !ruby/struct:SM::Flow::LI 
+        label: extra_rdoc_files
+        body: a Rake::FileList including files like README*, ChangeLog*, and LICENSE*
+      - !ruby/struct:SM::Flow::LI 
+        label: executables
+        body: uses anything found in the bin/ directory. You can override this.
+    type: :LABELED
+constants: []
+
+full_name: Jeweler::Specification
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ruby_code
+  - !ruby/object:RI::MethodSummary 
+    name: set_jeweler_defaults
+name: Specification
+superclass: 

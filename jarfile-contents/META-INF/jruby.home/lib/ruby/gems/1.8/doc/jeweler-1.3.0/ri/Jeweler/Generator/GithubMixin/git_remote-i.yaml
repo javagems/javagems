@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Generator::GithubMixin#git_remote
+is_singleton: false
+name: git_remote
+params: ()
+visibility: public

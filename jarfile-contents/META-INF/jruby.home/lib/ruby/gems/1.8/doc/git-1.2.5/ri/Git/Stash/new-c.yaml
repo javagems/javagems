@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Stash::new
+is_singleton: true
+name: new
+params: (base, message, existing=false)
+visibility: public

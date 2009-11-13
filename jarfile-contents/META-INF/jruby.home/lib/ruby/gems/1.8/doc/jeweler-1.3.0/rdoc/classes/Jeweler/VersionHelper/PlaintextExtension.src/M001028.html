@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_plaintext (Jeweler::VersionHelper::PlaintextExtension)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/jeweler/version_helper.rb, line 56</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_plaintext</span>
+        <span class="ruby-identifier">plaintext</span> = <span class="ruby-identifier">read_plaintext</span>.<span class="ruby-identifier">chomp</span>
+        <span class="ruby-comment cmt"># http://rubular.com/regexes/10467 -&gt; 3.5.4.a1</span>
+        <span class="ruby-comment cmt"># http://rubular.com/regexes/10468 -&gt; 3.5.4</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">plaintext</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^(\d+)\.(\d+)\.(\d+)(?:\.(.*?))?$/</span>
+          <span class="ruby-ivar">@major</span> = <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@minor</span> = <span class="ruby-identifier">$2</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@patch</span> = <span class="ruby-identifier">$3</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@build</span> = <span class="ruby-identifier">$4</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

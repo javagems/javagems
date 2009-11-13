@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Jeweler::Commands::Version::BumpPatch#update_version
+is_singleton: false
+name: update_version
+params: ()
+visibility: public

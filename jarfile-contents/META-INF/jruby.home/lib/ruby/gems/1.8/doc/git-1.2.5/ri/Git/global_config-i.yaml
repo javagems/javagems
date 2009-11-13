@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git#global_config
+is_singleton: false
+name: global_config
+params: (name = nil, value = nil)
+visibility: public

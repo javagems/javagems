@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: will run a grep for 'string' on the HEAD of the git repository
+  - !ruby/struct:SM::Flow::P 
+    body: "to be more surgical in your grep, you can call grep() off a specific git object. for example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " @git.object(&quot;v2.3&quot;).grep('TODO')\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "in any case, it returns a hash of arrays of the type:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " hsh[tree-ish] = [[line_no, match], [line_no, match2]]\n hsh[tree-ish] = [[line_no, match], [line_no, match2]]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "so you might use it like this:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @git.grep(&quot;TODO&quot;).each do |sha, arr|\n    puts &quot;in blob #{sha}:&quot;\n    arr.each do |match|\n      puts &quot;\\t line #{match[0]}: '#{match[1]}'&quot;\n    end\n  end\n"
+full_name: Git::Base#grep
+is_singleton: false
+name: grep
+params: (string, path_limiter = nil, opts = {})
+visibility: public
